@@ -13,10 +13,15 @@ public class helloController {
 			@RequestParam(required=false, defaultValue="test") String name,
 			@RequestParam(required=true) String action) {
 		
-		String temp=action+name;
-	
-		temp+="<html><body><p><form action='./hello?action=save' method='POST'><input type='text' name='name'><input type='submit' value='save' class='Button'></form></p></body></html>";
-		
+		String temp="-"+action+"-";
+		if (action.equals("start")) {
+			temp+="<html><body><p><form action='./hello?action=save' method='POST'><input type='text' name='name'><input type='submit' value='save' class='Button'></form></p></body></html>";
+		} else {
+			Person blubb = new Person();
+			blubb.setFirstName(name);
+			blubb.setLastName(action);
+			temp+=name;
+		}
 		return temp;
 	}
 }

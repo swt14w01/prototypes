@@ -18,8 +18,9 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
 @EnableAutoConfiguration
 @ComponentScan
 public class Application extends Neo4jConfiguration {
-
+	public GraphDatabaseService repo;
 	public Application() {
+		repo = new SpringRestGraphDatabase("http://[::]:7474/db/data");
 		setBasePackage("hello");
 	}
 
@@ -28,7 +29,7 @@ public class Application extends Neo4jConfiguration {
 		return new GraphDatabaseFactory().SpringRestGraphDatabase("target/hello.db");
 	}*/
 	public GraphDatabaseService graphDatabaseService() {
-		return new SpringRestGraphDatabase("http://[::]:7474/db/data");	
+		return repo;
 	}
 	
 
