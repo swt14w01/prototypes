@@ -4,9 +4,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @RestController
 public class helloController {
+	
+	@Autowired
+	private PersonRepository pipapo;
 	
 	@RequestMapping(value="/hello",method={RequestMethod.POST, RequestMethod.GET})
 	public String hello(
@@ -21,6 +26,9 @@ public class helloController {
 			blubb.setFirstName(name);
 			blubb.setLastName(action);
 			temp+=name;
+			
+			pipapo.save(blubb);
+			
 		}
 		return temp;
 	}
