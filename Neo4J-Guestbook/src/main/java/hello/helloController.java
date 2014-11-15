@@ -1,10 +1,13 @@
 package hello;
 
+import org.neo4j.graphdb.Transaction;
+import org.neo4j.rest.graphdb.RestGraphDatabase;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.neo4j.core.GraphDatabase;
 
 
 @RestController
@@ -12,6 +15,7 @@ public class helloController {
 	
 	@Autowired
 	private PersonRepository pipapo;
+	
 	
 	@RequestMapping(value="/hello",method={RequestMethod.POST, RequestMethod.GET})
 	public String hello(
@@ -27,7 +31,10 @@ public class helloController {
 			blubb.setLastName(action);
 			temp+=name;
 			
+			Transaction tx=Application.repo.beginTx();
 			pipapo.save(blubb);
+			tx.success();
+			tx.close();
 			
 		}
 		return temp;
