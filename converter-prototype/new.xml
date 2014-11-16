@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jqa:jqassistant-rules add=" xmlns:jqa='http://www.buschmais.com/jqassistant/core/analysis/rules/schema/v1.0'">
+    <rules>
+        <id>John Peel</id>
+        <description>John Peel</description>
+        <cypher>John Peel</cypher>
+    </rules>
+    <constraint>
+        <id>John Peel2</id>
+        <description>John Peel2</description>
+        <cypher>John Peel2</cypher>
+    </constraint>
+    <concept>
+        <concept/>
+        <concept/>
+    </concept>
+</jqa:jqassistant-rules>
