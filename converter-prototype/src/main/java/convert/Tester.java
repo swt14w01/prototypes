@@ -40,16 +40,24 @@ class Tester{
 		rule3.setConcept(rule4);
 		rule3.setConcept(rule5);
 		
+		Group rule6 = new Group();
+		Group rule7 = new Group();
+		Group rule8 = new Group();
+		rule6.setGroup(rule7);
+		rule6.setGroup(rule8);
+		
+		
 		rules.add(rule1);
 		rules.add(rule2);
 		rules.add(rule3);
+		rules.add(rule6);
 		
 		Converter convert = new Converter();
 		
 		convert.plaintoxml(rules);
 	   
 	  
-	 File file = new File("new.xml");
+	 File file = new File("tester.xml");
 
 	 convert.xmltoplain(file);
 	}

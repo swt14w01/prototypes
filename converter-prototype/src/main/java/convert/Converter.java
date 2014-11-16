@@ -29,21 +29,23 @@ import org.xml.sax.InputSource;
 import java.util.List;
 
 
+
+
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-//import com.fasterxml.jackson.core.JsonParseException;
-//import com.fasterxml.jackson.annotation.JsonMappingException;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.fasterxml.jackson.databind.JsonMappingException;
+
+
 
 
 public class Converter {
-	Xmlview xmlview = new Xmlview();
+
 	List<Rules> rulesintern = new ArrayList<Rules>();
 	
 	public  void plaintoxml(List<Rules> rules){
@@ -61,13 +63,6 @@ public class Converter {
 			m.marshal( comp, System.out );
 			m.marshal(comp, new File("new.xml"));
 			
-			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			dbf.setValidating(false);
-			DocumentBuilder db = dbf.newDocumentBuilder();
-		 
-			
-			
-			//xmlview.show();
 			
 		}
 			catch (Exception e){
@@ -81,16 +76,21 @@ public class Converter {
 		
 	
 	
-	public  void xmltoplain(File file) throws Exception{
+	public  void xmltoplain(File file)throws JAXBException{
 		System.out.println("XMLtoPlain");
 			
-		//import Error!
-		/* JAXBContext jCtx = JAXBContext.newInstance(Component.class);
-		Unmarshaller fromXml = jCtx.createUnmarshaller();
-		Component rXml = (Component)fromXml.unmarshal( new FileReader("tester.xml"));
-
-		//ObjectMapper mapper = new ObjectMapper();
-       // System.out.println(mapper.writeValueAsString(rXml));*/
+		 try {
+			 
+				
+				JAXBContext jaxbContext = JAXBContext.newInstance(Component.class);
+		 
+				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+				Component comp = (Component) jaxbUnmarshaller.unmarshal(file);
+				System.out.println(comp);
+		 
+			  } catch (JAXBException e) {
+				e.printStackTrace();
+			  }
 	      		
 			 System.out.println("XMLtoPlain");
 				

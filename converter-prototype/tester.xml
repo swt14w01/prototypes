@@ -1,4 +1,5 @@
-<jqa:jqassistant-rules xmlns:jqa="http://www.buschmais.com/jqassistant/core/analysis/rules/schema/v1.0">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<{}jqa:jqassistant-rules >
 
     <constraint id="example:ConstructorOfDateMustNotBeUsed">
         <description>Constructors of java.util.Date must not be used.</description>

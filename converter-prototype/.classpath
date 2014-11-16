@@ -32,5 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Phinichi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

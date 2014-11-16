@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlList;
 import java.util.*;
 
 @XmlRootElement(name ="jqa:jqassistant-rules")
+
 public class Component {
 
 	
@@ -33,6 +34,7 @@ public void setList(List<Rules> rules){
 @XmlElements({
 @XmlElement(name = "constraint", type=Constraint.class),
 @XmlElement(name = "concept", type=Concept.class),
+@XmlElement(name = "group", type=Group.class),
 @XmlElement(name = "rules", type=Rules.class)})
 public List<Rules> getList(){
 	return rules;
