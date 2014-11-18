@@ -36,14 +36,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 
-
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-
-
-
-
 public class Converter {
 
 	List<Rules> rulesintern = new ArrayList<Rules>();
@@ -78,15 +70,15 @@ public class Converter {
 	
 	public  void xmltoplain(File file)throws JAXBException{
 		System.out.println("XMLtoPlain");
-			
+		/*	
 		 try {
 			 
-				
+			
 				JAXBContext jaxbContext = JAXBContext.newInstance(Component.class);
 		 
 				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 				Component comp = (Component) jaxbUnmarshaller.unmarshal(file);
-				System.out.println(comp);
+				System.out.println(comp); 
 		 
 			  } catch (JAXBException e) {
 				e.printStackTrace();
@@ -95,10 +87,12 @@ public class Converter {
 			 System.out.println("XMLtoPlain");
 				
 	}
-
+*/
 	
 
 	
 	
 
+}
+	
 }

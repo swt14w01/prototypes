@@ -53,7 +53,7 @@ class Tester{
 		rules.add(rule6);
 		
 		Converter convert = new Converter();
-		
+		//Konvertierung mit prototypischen Klassen Concept, Constraint..
 		convert.plaintoxml(rules);
 	   
 	  
