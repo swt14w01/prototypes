@@ -16,17 +16,21 @@ public class JRMDS {
 	@Autowired
 	private ProjectRepository Prepo;
 
-	public String blubb() {
-		return "hio";
+	public Project getProject(String pname) {
+		Project temp=null;
+		try (Transaction tx = db.beginTx()) {
+			temp=Prepo.findByName(pname);
+			tx.success();
+		}
+		return temp;
 	}
-	
 	public Boolean createProject(String name) {
 		Project temp = new Project(name);
 
-		Transaction tx = db.beginTx();
-		Prepo.save(temp);
-		tx.success();
-		tx.close();
+		try (Transaction tx = db.beginTx()) {
+			Prepo.save(temp);
+			tx.success();
+		}
 		return true;
 		
 	}

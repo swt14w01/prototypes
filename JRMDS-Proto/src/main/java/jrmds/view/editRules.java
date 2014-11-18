@@ -20,7 +20,7 @@ public class editRules {
 		
 		if (ctlr.createProject("testproject")) temp+="Project_YES - ";
 		if (usr.createUser("Brain", "Power")) temp+="User_YES - ";
-		
+		if (usr.userWorksOn("Power", "testproject"));
 		
 		return temp;
 	}

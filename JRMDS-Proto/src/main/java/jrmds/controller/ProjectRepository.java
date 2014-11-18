@@ -7,5 +7,5 @@ import jrmds.controller.model.*;
 
 @Repository
 public interface ProjectRepository extends CrudRepository<Project, Long> {
-	
+	Project findByName(String name);
 }
