@@ -21,23 +21,36 @@ public class UserManagement {
 	@Autowired 
 	private JRMDS ctrl;
 	
-	public Boolean createUser(String forename, String surname) {
-		RegisteredUser temp = new RegisteredUser(forename, surname);
-		try (Transaction tx = db.beginTx()) {
-			Urepo.save(temp);
+	public RegisteredUser getUser(String surname) {
+		RegisteredUser temp = null;
+		try (Transaction tx= db.beginTx()) {
+			temp=Urepo.findBySurname(surname);
 			tx.success();
 		}
-		
-		return true;
+		return temp;
+	}
+	
+	public Boolean createUser(String forename, String surname) {
+		if (getUser(surname)==null) {
+			try (Transaction tx = db.beginTx()) {
+				RegisteredUser temp = new RegisteredUser(forename, surname);
+				Urepo.save(temp);
+				tx.success();
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public Boolean userWorksOn(String surname, String p) {
+		Boolean booli=false;
 		try (Transaction tx = db.beginTx()) {
 			RegisteredUser temp=Urepo.findBySurname(surname);
-			temp.worksWith(ctrl.getProject(p));
+			booli=temp.worksWith(ctrl.getProject(p));
 			Urepo.save(temp);
 			tx.success();
 		}
-		return true;
+		return booli;
 	}
 }

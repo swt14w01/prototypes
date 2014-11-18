@@ -26,11 +26,16 @@ public class RegisteredUser {
 		surname=s;
 	}
 	
-	public void worksWith(Project project) {
+	public Boolean worksWith(Project project) {
         if (worksOn == null) {
             worksOn = new HashSet<Project>();
         }
-        worksOn.add(project);
+        if (worksOn.contains(project)) {
+        	return false;
+        } else {
+        	worksOn.add(project);
+        	return true;
+        }
     }
 	
 	public Long getID() {
