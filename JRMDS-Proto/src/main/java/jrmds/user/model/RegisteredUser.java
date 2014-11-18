@@ -17,6 +17,10 @@ public class RegisteredUser {
 	@RelatedTo(type="WORKSON", direction=Direction.BOTH)
 	private @Fetch Set<Project> worksOn;
 	
+	public RegisteredUser() {
+		//empty
+	}
+	
 	public RegisteredUser(String f, String s) {
 		forename=f;
 		surname=s;
