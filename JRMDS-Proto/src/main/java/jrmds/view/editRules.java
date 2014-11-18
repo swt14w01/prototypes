@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class editRules {
 
 	@RequestMapping(value="/editRules")
-	public String editRules() {
+	public String htmlOutput() {
 		String output="";
 		return output;
 	}
