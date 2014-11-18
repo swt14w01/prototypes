@@ -10,7 +10,7 @@ import jrmds.user.*;
 @RestController
 public class editRules {
 	
-	private Controller ctlr;
+	private JRMDS ctlr;
 	private UserManagement usr;
 	
 	@RequestMapping(value="/editRules")
