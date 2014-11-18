@@ -9,13 +9,15 @@ import jrmds.controller.model.*;
 public class Controller {
 	@Autowired
 	private GraphDatabaseService db;
-	
 	@Autowired
 	private RuleRepository Rrepo;
-	
 	@Autowired
 	private ProjectRepository Prepo;
 
+	public String blubb() {
+		return "hio";
+	}
+	
 	public Boolean createProject(String name) {
 		Project temp = new Project(name);
 
