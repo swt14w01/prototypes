@@ -1,4 +1,4 @@
-package jrmds.model;
+package jrmds.user.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -7,6 +7,7 @@ import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.Fetch;
+import jrmds.controller.model.*;
 
 @NodeEntity
 public class RegisteredUser {

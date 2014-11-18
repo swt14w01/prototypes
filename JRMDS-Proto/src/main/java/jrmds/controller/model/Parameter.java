@@ -1,4 +1,4 @@
-package jrmds.model;
+package jrmds.controller.model;
 
 public class Parameter {
 	private Boolean isString;

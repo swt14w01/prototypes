@@ -1,4 +1,4 @@
-package jrmds.model;
+package jrmds.controller.model;
 
 import java.util.List;
 import java.util.ArrayList;

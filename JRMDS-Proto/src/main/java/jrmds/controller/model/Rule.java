@@ -1,4 +1,4 @@
-package jrmds.model;
+package jrmds.controller.model;
 
 public class Rule extends SubComponent {
 	private String severity;

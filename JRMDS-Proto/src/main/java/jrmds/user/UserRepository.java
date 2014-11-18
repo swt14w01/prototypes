@@ -2,7 +2,7 @@ package jrmds.user;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import jrmds.model.*;
+import jrmds.user.model.*;
 
 
 @Repository

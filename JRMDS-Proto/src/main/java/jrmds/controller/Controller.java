@@ -3,7 +3,7 @@ package jrmds.controller;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import jrmds.model.*;
+import jrmds.controller.model.*;
 
 
 public class Controller {
