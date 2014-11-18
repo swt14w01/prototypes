@@ -1,7 +1,7 @@
 package jrmds.model;
 
 public class Concept extends Rule {
-	Concept(String RefID) {
+	public Concept(String RefID) {
 		super(RefID);
 	}
 }

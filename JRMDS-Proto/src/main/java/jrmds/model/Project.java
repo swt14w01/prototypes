@@ -12,7 +12,7 @@ public class Project {
 	private String name;
 	private List<String> externalRepos;
 	
-	Project(String name) {
+	public Project(String name) {
 		this.name=name;
 		externalRepos=new ArrayList<String>();
 	}
