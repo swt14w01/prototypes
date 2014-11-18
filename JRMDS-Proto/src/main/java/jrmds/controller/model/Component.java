@@ -6,11 +6,15 @@ import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 
 @NodeEntity
-public class Component {
+public abstract class Component {
 	@GraphId private Long id;
 
 	private String RefID;
 	private List<String> Tags;
+	
+	Component() {
+		//empty Constructor for no-args
+	}
 	
 	Component(String RefID) {
 		this.RefID=RefID;

@@ -6,12 +6,16 @@ public class Parameter {
 	private String valueStr;
 	private Integer valueInt;
 	
-	Parameter(String name, String valueStr) {
+	public Parameter() {
+		//empty for Hibernate
+	}
+	
+	public Parameter(String name, String valueStr) {
 		this.isString=true;
 		this.name=name;
 		this.valueStr=valueStr;
 	}
-	Parameter(String name, Integer valueInt) {
+	public Parameter(String name, Integer valueInt) {
 		this.isString=false;
 		this.name=name;
 		this.valueInt=valueInt;

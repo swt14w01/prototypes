@@ -17,6 +17,10 @@ public class Project {
 	private String name;
 	private List<String> externalRepos;
 	
+	public Project() {
+		//empty Constructor for Hibernate
+	}
+	
 	public Project(String name) {
 		this.name=name;
 		externalRepos=new ArrayList<String>();

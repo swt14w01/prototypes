@@ -1,8 +1,12 @@
 package jrmds.controller.model;
 
-public class Rule extends SubComponent {
+public abstract class Rule extends SubComponent {
 	private String severity;
-		
+	
+	Rule() {
+		//blubb
+	}
+	
 	Rule(String RefID) {
 		super(RefID);
 	}
