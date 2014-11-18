@@ -29,6 +29,9 @@ public class RegisteredUser {
         worksOn.add(project);
     }
 	
+	public Long getID() {
+		return id;
+	}
 	public String getForename() {
 		return forename;
 	}

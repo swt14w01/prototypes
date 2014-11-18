@@ -15,12 +15,7 @@ public class Controller {
 	
 	@Autowired
 	private ProjectRepository Prepo;
-	
-	public String huhu() {
-		String txt="sdf";
-		return txt;
-	}
-	
+
 	public Boolean createProject(String name) {
 		Project temp = new Project(name);
 
