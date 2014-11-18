@@ -3,8 +3,11 @@ package jrmds.controller;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import jrmds.controller.model.*;
 
+@Controller
 public class JRMDS {
 	@Autowired
 	private GraphDatabaseService db;
