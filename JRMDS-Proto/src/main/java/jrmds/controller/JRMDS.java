@@ -25,9 +25,8 @@ public class JRMDS {
 		return temp;
 	}
 	public Boolean createProject(String name) {
-		Project temp = new Project(name);
-
 		try (Transaction tx = db.beginTx()) {
+			Project temp = new Project(name);
 			Prepo.save(temp);
 			tx.success();
 		}

@@ -18,9 +18,11 @@ public class editRules {
 	public String htmlOutput() {
 		String temp="";
 		
-		if (ctlr.createProject("testproject")) temp+="Project_YES - ";
+		if (ctlr.createProject("testproject01")) temp+="Project_YES - ";
+		if (ctlr.createProject("testproject02")) temp+="Project_YES - ";
 		if (usr.createUser("Brain", "Power")) temp+="User_YES - ";
-		if (usr.userWorksOn("Power", "testproject"));
+		if (usr.userWorksOn("Power", "testproject01")) temp+="WorksON_YES - ";;
+		if (usr.userWorksOn("Power", "testproject02")) temp+="WorksON_YES - ";;
 		
 		return temp;
 	}
