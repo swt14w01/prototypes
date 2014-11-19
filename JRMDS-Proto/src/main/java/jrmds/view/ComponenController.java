@@ -19,7 +19,7 @@ public class ComponenController {
 	private UserManagement usr;
 	
 	@RequestMapping(value="/editRules")
-	public String htmlOutput() {
+	public String htmlRules() {
 		String temp="";
 		
 		if (ctlr.createProject("testproject01")) temp+="Project_YES - ";
