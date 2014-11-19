@@ -1,6 +1,7 @@
 package jrmds.view;
 
 import java.util.Iterator;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +23,18 @@ public class ComponenController {
 	public String htmlRules() {
 		String temp="";
 		
-		if (ctlr.createProject("testproject01")) temp+="Project_YES - ";
-		if (ctlr.createProject("testproject02")) temp+="Project_YES - ";
-		if (usr.createUser("Brain", "Power")) temp+="User_YES - ";
-		if (usr.userWorksOn(usr.getUser("Power"), ctlr.getProject("testproject01"))) temp+="WorksON_YES - ";
-		if (usr.userWorksOn(usr.getUser("Power"), ctlr.getProject("testproject02"))) temp+="WorksON_YES - ";
+		//Ausgeben des aktuellen Inhaltes:
+		Constraint foo = ctlr.getConstraint(null);
 		
-		Iterator<Project> iter = usr.getUser("Power").getProjects().iterator();
+		//suche alle Parameter zusammen
+		Set<Parameter> bar = foo.getParameters();
+	
+		Iterator<Parameter> iter = bar.iterator();
 		while (iter.hasNext()) {
-			temp+=iter.next().toString();
+			temp+=iter.next().getName();
 		}
+		
+		//Suche alle Dependencies (also Rules, von denen diese Rule hier abhängt)
 		
 		return temp;
 	}

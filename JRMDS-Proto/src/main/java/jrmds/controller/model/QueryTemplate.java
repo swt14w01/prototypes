@@ -5,6 +5,9 @@ public class QueryTemplate extends SubComponent {
 		//empty for Hibernate
 	}
 	public QueryTemplate(String RefID) {
-		super(RefID);
+		super(RefID, ComponentType.TEMPLATE);
+	}
+	public QueryTemplate(Component cmpt) {
+		super(cmpt);
 	}
 }

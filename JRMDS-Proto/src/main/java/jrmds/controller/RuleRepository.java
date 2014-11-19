@@ -7,5 +7,5 @@ import jrmds.controller.model.*;
 
 @Repository
 public interface RuleRepository extends CrudRepository<Component, Long> {
-	
+	Constraint findByRefID(String RefID, ComponentType type);
 }

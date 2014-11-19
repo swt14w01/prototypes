@@ -5,10 +5,13 @@ public abstract class Rule extends SubComponent {
 	
 	Rule() {
 		//blubb
+	}	
+	Rule(String RefID, ComponentType type) {
+		super(RefID, type);
 	}
-	
-	Rule(String RefID) {
-		super(RefID);
+	Rule(Component cmpt) {
+		super(cmpt.getRefID(),cmpt.getType());
+		severity=cmpt.getSeverity();
 	}
 	
 	public String getSeverity() {

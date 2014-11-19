@@ -5,6 +5,9 @@ public class Group extends Component {
 		//empty
 	}
 	public Group (String RefID) {
-		super(RefID);
+		super(RefID, ComponentType.GROUP);
+	}
+	public Group (Component cmpt) {
+		super(cmpt.getRefID(), ComponentType.GROUP);
 	}
 }
