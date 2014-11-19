@@ -1,4 +1,4 @@
-package hello;
+ package hello;
 
 import javax.validation.Valid;
 
@@ -30,7 +30,7 @@ public class WebController extends WebMvcConfigurerAdapter {
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String showForm(Person person) {
-        return "form";
+        return "index";
     }
     
     @RequestMapping(value="/content", method=RequestMethod.GET)
