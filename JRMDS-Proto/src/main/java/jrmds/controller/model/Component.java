@@ -11,7 +11,7 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 public abstract class Component {
 	@GraphId private Long id;
 
-	private String RefID;
+	private String refID;
 	private List<String> Tags;
 	private ComponentType type;
 	
@@ -19,17 +19,17 @@ public abstract class Component {
 		//empty Constructor for no-args
 	}
 	
-	Component(String RefID, ComponentType type) {
-		this.RefID=RefID;
+	Component(String refID, ComponentType type) {
+		this.refID=refID;
 		this.type=type;
 		this.Tags = new ArrayList<String>();
 	}
 	
 	public String getRefID() {
-		return RefID;
+		return refID;
 	}
-	public void setRefID(String RefID) {
-		this.RefID=RefID;
+	public void setRefID(String refID) {
+		this.refID=refID;
 	}
 	public ComponentType getType() {
 		return type;
