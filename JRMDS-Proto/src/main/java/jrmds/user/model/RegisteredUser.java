@@ -26,14 +26,19 @@ public class RegisteredUser {
 		surname=s;
 	}
 	
-	public Boolean worksWith(Project project) {
+	public Set<Project> getProjects() {
+		return worksOn;
+	}
+	
+	public boolean worksWith(Project project) {
         if (worksOn == null) {
             worksOn = new HashSet<Project>();
+            return false;
         }
         if (worksOn.contains(project)) {
         	return false;
         } else {
-        	worksOn.add(project);
+        	//worksOn.add(project);
         	return true;
         }
     }

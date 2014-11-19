@@ -31,15 +31,13 @@ public class JRMDS {
 	
 	public List<Project> getAllProjects(){
 		List<Project> allprojects = new ArrayList<Project>();
-		allprojects = null;
-		
-			for(Project node : Prepo.findAll()){ 
-				allprojects.add(node);
-			}
+		for(Project node : Prepo.findAll()) { 
+			allprojects.add(node);
+		}
 		return allprojects;
 	}
 	
-	public Boolean createProject(String name) {
+	public boolean createProject(String name) {
 		if (getProject(name)==null) {
 			try (Transaction tx = db.beginTx()) {
 				Project temp = new Project(name);
@@ -50,7 +48,6 @@ public class JRMDS {
 		} else {
 			return false;
 		}
-		
 		
 	}
 }

@@ -30,7 +30,7 @@ public class UserManagement {
 		return temp;
 	}
 	
-	public Boolean createUser(String forename, String surname) {
+	public boolean createUser(String forename, String surname) {
 		if (getUser(surname)==null) {
 			try (Transaction tx = db.beginTx()) {
 				RegisteredUser temp = new RegisteredUser(forename, surname);
@@ -43,12 +43,10 @@ public class UserManagement {
 		}
 	}
 	
-	public Boolean userWorksOn(String surname, String p) {
-		Boolean booli=false;
-		try (Transaction tx = db.beginTx()) {
-			RegisteredUser temp=Urepo.findBySurname(surname);
-			booli=temp.worksWith(ctrl.getProject(p));
-			Urepo.save(temp);
+	public boolean userWorksOn(RegisteredUser u, Project p) {
+		boolean booli=u.worksWith(p);
+		if (booli) try (Transaction tx = db.beginTx()) {
+			Urepo.save(u);
 			tx.success();
 		}
 		return booli;

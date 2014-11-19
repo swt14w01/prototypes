@@ -33,4 +33,18 @@ public class Project {
 		return externalRepos;
 	}
 	
+	public boolean equals(Project p) {
+		if (p.id.equals(this.id)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public int hashCode() {
+		return this.id.intValue();
+	}
+	public String toString() {
+		return name;
+	}
+	
 }
