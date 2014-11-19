@@ -11,6 +11,7 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.Fetch;
 
+@SuppressWarnings("unused")
 @NodeEntity
 public class Project {
 	@GraphId private Long id;

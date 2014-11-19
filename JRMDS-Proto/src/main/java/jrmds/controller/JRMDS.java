@@ -6,6 +6,7 @@ import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import java.util.*;
 
 import jrmds.controller.model.*;
@@ -29,6 +30,7 @@ public class JRMDS {
 		return temp;
 	}
 	
+	@SuppressWarnings("null")
 	public List<Project> getAllProjects(){
 		List<Project> allprojects = new ArrayList<Project>();
 		allprojects = null;

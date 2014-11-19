@@ -17,24 +17,24 @@ public class UserManagement {
 	@Autowired
 	private GraphDatabaseService db;
 	@Autowired
-	private UserRepository Urepo;
+	private UserRepository UserRepository;
 	@Autowired 
 	private JRMDS ctrl;
 	
-	public RegisteredUser getUser(String surname) {
+	public RegisteredUser getUser(String username) {
 		RegisteredUser temp = null;
 		try (Transaction tx= db.beginTx()) {
-			temp=Urepo.findBySurname(surname);
+			temp=UserRepository.findByUsername(username);
 			tx.success();
 		}
 		return temp;
 	}
 	
-	public Boolean createUser(String forename, String surname) {
-		if (getUser(surname)==null) {
+	public Boolean createUser(String username, String password, String emailAdress) {
+		if (getUser(username)==null) {
 			try (Transaction tx = db.beginTx()) {
-				RegisteredUser temp = new RegisteredUser(forename, surname);
-				Urepo.save(temp);
+				RegisteredUser temp = new RegisteredUser(username, password, emailAdress);
+				UserRepository.save(temp);
 				tx.success();
 			}
 			return true;
@@ -43,12 +43,12 @@ public class UserManagement {
 		}
 	}
 	
-	public Boolean userWorksOn(String surname, String p) {
+	public Boolean userWorksOn(String username, String project) {
 		Boolean booli=false;
 		try (Transaction tx = db.beginTx()) {
-			RegisteredUser temp=Urepo.findBySurname(surname);
-			booli=temp.worksWith(ctrl.getProject(p));
-			Urepo.save(temp);
+			RegisteredUser temp=UserRepository.findByUsername(username);
+			booli=temp.worksOn(ctrl.getProject(project));
+			UserRepository.save(temp);
 			tx.success();
 		}
 		return booli;

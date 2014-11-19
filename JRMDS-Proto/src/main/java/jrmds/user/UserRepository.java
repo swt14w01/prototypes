@@ -10,7 +10,6 @@ import jrmds.user.model.*;
 
 @Repository
 public interface UserRepository extends CrudRepository<RegisteredUser, Long> {
-	RegisteredUser findByForename(String forename);
-	RegisteredUser findBySurname(String surname);
-	RegisteredUser findOne(Long id);
+	RegisteredUser findByUsername(String username);
+	RegisteredUser findByemailAdress(String emailAdress);
 }
