@@ -26,17 +26,22 @@ public class RegisteredUser {
 		this.emailAdress = emailAdress;
 	}
 	
+
 	public Boolean worksOn(Project project) {
         if (projects == null) {
-            projects = new HashSet<Project>();
+            projects = new HashSet<Project>(); 
         }
         if (projects.contains(project)) {
         	return false;
         } else {
         	projects.add(project);
-        	return true;
+        	 return true;
         }
-    }
+        }
+            
+	public Set<Project> getProjects() {
+		return projects;
+	}
 	
 	public Long getID() {
 		return id;
