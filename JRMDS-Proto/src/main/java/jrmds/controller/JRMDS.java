@@ -19,7 +19,6 @@ public class JRMDS {
 	@Autowired
 	private ProjectRepository Prepo;
 	
-	GlobalGraphOperations dbOperations = GlobalGraphOperations.at(db);
 	
 	public Project getProject(String pname) {
 		Project temp=null;
@@ -30,17 +29,13 @@ public class JRMDS {
 		return temp;
 	}
 	
-	public List<Node> getAllProjects(){
-		List<Node> allprojects = new ArrayList<Node>();
+	public List<Project> getAllProjects(){
+		List<Project> allprojects = new ArrayList<Project>();
 		allprojects = null;
 		
-		 try (Transaction tx = db.beginTx()) {
-			
-			for(Node node : dbOperations.getAllNodes()){ //<Node> to <Project>?, eig. über Prepo?
+			for(Project node : Prepo.findAll()){ 
 				allprojects.add(node);
 			}
-			tx.success();
-		}
 		return allprojects;
 	}
 	
