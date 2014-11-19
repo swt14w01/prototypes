@@ -12,7 +12,7 @@ import jrmds.user.*;
 import jrmds.user.model.*;
 
 @RestController
-public class editRules {
+public class ComponenController {
 	@Autowired
 	private JRMDS ctlr;
 	@Autowired

@@ -11,21 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 
-public class projects {
-	
+public class ProjectController {
 	@Autowired
 	private JRMDS ctlr;
 
 	@RequestMapping(value="/projects")
 	public String htmlOutput(){
-		
+		String temp="";
 		List<Project> projectlist = new ArrayList<Project>();
 		projectlist = ctlr.getAllProjects();
 		for(Project project :projectlist){
-			//print project.getName(); project.getDescription(); project.getProjectleader();	
+			temp+=project.getName(); 
 		}
 		
-		return "";
+		return temp;
 	}
 	
 	
