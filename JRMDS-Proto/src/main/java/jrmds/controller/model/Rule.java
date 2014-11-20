@@ -17,4 +17,7 @@ public abstract class Rule extends SubComponent {
 	public String getSeverity() {
 		return severity;
 	}
+	public void setSeverity(String sev) {
+		this.severity=sev;
+	}
 }

@@ -9,5 +9,6 @@ public class Group extends Component {
 	}
 	public Group (Component cmpt) {
 		super(cmpt.getRefID(), ComponentType.GROUP);
+		super.setTags(cmpt.getTags());
 	}
 }

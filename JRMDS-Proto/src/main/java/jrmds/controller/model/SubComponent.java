@@ -22,6 +22,7 @@ public abstract class SubComponent extends Component {
 	}
 	SubComponent(Component cmpt) {
 		super(cmpt.getRefID(), cmpt.getType());
+		super.setTags(cmpt.getTags());
 		description=cmpt.getDescription();
 		cypher=cmpt.getCypher();
 		parameters=cmpt.getParameters();
@@ -36,4 +37,19 @@ public abstract class SubComponent extends Component {
 	public Set<Parameter> getParameters() {
 		return parameters;
 	}
+	public void setDescription(String desc) {
+		this.description=desc;
+	}
+	public void setCypher(String cypher) {
+		this.cypher=cypher;
+	}
+	public void setParameters(Set<Parameter> para) {
+		this.parameters = para;
+	}
+	public void addParameter(Parameter para) {
+		this.parameters.add(para);
+	}
+	public void deleteParameter(Parameter para) {
+	}
+
 }
