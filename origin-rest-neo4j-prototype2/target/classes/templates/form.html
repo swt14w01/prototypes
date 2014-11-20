@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <form action="#" th:action="@{/hello}" th:object="${person}" method="post">
+            <table>
+                <tr>
+                    <td>Firstame:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                </tr>
+                 <tr>
+                    <td>Lastname:</td>
+                    <td><input type="text" th:field="*{lastname}" /></td>
+                    <td th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="text" th:field="*{age}" /></td>
+                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
