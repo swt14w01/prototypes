@@ -1,20 +1,30 @@
 package jrmds.controller.model;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
+
+import org.neo4j.graphdb.Direction;
+import org.springframework.data.neo4j.annotation.Fetch;
+import org.springframework.data.neo4j.annotation.RelatedTo;
 
 public abstract class SubComponent extends Component {
 	private String description;
 	private String cypher;
-	private List<Parameter> parameters;
+	@RelatedTo(type="PARAMETER", direction=Direction.BOTH)
+	private @Fetch Set<Parameter> parameters;
 	
 	SubComponent() {
 		//empty Constructor for no-arg
 	}
-	
-	SubComponent(String RefID) {
-		super(RefID);
-		parameters=new ArrayList<Parameter>();
+	SubComponent(String RefID, ComponentType type) {
+		super(RefID, type);
+		parameters=new HashSet<Parameter>();
+	}
+	SubComponent(Component cmpt) {
+		super(cmpt.getRefID(), cmpt.getType());
+		description=cmpt.getDescription();
+		cypher=cmpt.getCypher();
+		parameters=cmpt.getParameters();
 	}
 	
 	public String getDescription() {
@@ -23,7 +33,7 @@ public abstract class SubComponent extends Component {
 	public String getCypher() {
 		return cypher;
 	}
-	public List<Parameter> getParameters() {
+	public Set<Parameter> getParameters() {
 		return parameters;
 	}
 }

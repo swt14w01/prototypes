@@ -20,8 +20,7 @@ public class Project {
 	
 	public Project() {
 		//empty Constructor for Hibernate
-	}
-	
+	}	
 	public Project(String name) {
 		this.name=name;
 		externalRepos=new ArrayList<String>();
@@ -33,6 +32,7 @@ public class Project {
 	public List<String> getExternalRepos() {
 		return externalRepos;
 	}
+
 	
 	public boolean equals(Project p) {
 		if (p.id.equals(this.id)) {

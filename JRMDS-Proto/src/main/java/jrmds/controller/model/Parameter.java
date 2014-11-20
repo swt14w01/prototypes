@@ -1,6 +1,11 @@
 package jrmds.controller.model;
 
+import org.springframework.data.neo4j.annotation.GraphId;
+import org.springframework.data.neo4j.annotation.NodeEntity;
+
+@NodeEntity
 public class Parameter {
+	@GraphId private Long id;
 	private Boolean isString;
 	private String name;
 	private String valueStr;
