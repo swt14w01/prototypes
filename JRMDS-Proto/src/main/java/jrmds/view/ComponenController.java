@@ -26,10 +26,10 @@ public class ComponenController {
 		if (ctlr.createProject("testproject02")) temp+="Project_YES - ";
 
 		if (usr.createUser("Brain", "Power", "What")) temp+="User_YES - ";
-		if (usr.userWorksOn("Power", "testproject01")) temp+="WorksON_YES - ";;
-		if (usr.userWorksOn("Power", "testproject02")) temp+="WorksON_YES - ";;
+		//if (usr.userWorksOn("Power", "testproject01")) temp+="WorksON_YES - ";;
+		//if (usr.userWorksOn("Power", "testproject02")) temp+="WorksON_YES - ";;
 
-		if (usr.createUser("Brain", "Power")) temp+="User_YES - ";
+		//if (usr.createUser("Brain", "Power")) temp+="User_YES - ";
 		if (usr.userWorksOn(usr.getUser("Power"), ctlr.getProject("testproject01"))) temp+="WorksON_YES - ";
 		if (usr.userWorksOn(usr.getUser("Power"), ctlr.getProject("testproject02"))) temp+="WorksON_YES - ";
 		

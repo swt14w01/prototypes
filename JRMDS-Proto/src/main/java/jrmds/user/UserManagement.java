@@ -47,7 +47,7 @@ public class UserManagement {
 	
 
 	public boolean userWorksOn(RegisteredUser u, Project p) {
-		boolean booli=u.worksWith(p);
+		boolean booli=u.worksOn(p);
 		if (booli) try (Transaction tx = db.beginTx()) {
 			UserRepository.save(u);
 
