@@ -1,20 +1,27 @@
 package jrmds;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.neo4j.graphdb.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.neo4j.rest.SpringRestGraphDatabase;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Controller
 public class WebController extends WebMvcConfigurerAdapter {
 	
+	@Autowired
+	private SpringRestGraphDatabase db;
 	@Autowired
 	public PersonRepository perrepo;
 
@@ -33,7 +40,7 @@ public class WebController extends WebMvcConfigurerAdapter {
     
     
    
-    /*@RequestMapping(value = "/guests", method = RequestMethod.GET)
+    @RequestMapping(value = "/guests", method = RequestMethod.GET)
     public String showGuestList(Model model) {
     	List<Person> personsList = new ArrayList<Person>();
     	for(Person pers: perrepo.findAll()){
@@ -41,9 +48,9 @@ public class WebController extends WebMvcConfigurerAdapter {
     	}
     model.addAttribute("guests", personsList);
     return "content :: resultsList";
-    }*/
+    }
     
-    /*
+    
     @RequestMapping(value = "/content", method = RequestMethod.GET)
     public ModelAndView persons() {
         ModelAndView mav = new ModelAndView("personlist");
@@ -53,14 +60,14 @@ public class WebController extends WebMvcConfigurerAdapter {
     	}
         mav.addObject("personslist", personsList);
         return mav;
-    }*/
+    }
 
     @RequestMapping(value="/hello", method=RequestMethod.POST)
     public String checkPersonInfo(@Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "form";
         }
-        Transaction tx = Application.repo.beginTx();
+        Transaction tx = db.beginTx();
         try {
         perrepo.save(person);
         System.out.println(person.getName());
