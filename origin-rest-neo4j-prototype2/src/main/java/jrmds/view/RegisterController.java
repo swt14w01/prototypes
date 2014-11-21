@@ -1,6 +1,6 @@
 package jrmds.view;
 
-import jrmds.controller.JRMDS;
+import jrmds.controller.JrmdsMainController;
 import jrmds.user.UserManagement;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegisterController {
 	@Autowired
-	private JRMDS ctlr;
+	private JrmdsMainController ctlr;
 	@Autowired
 	private UserManagement usr;
 	

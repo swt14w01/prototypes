@@ -20,11 +20,10 @@ public abstract class Component {
 	@RelatedTo(type="DEPENDSON", direction=Direction.BOTH)
 	private @Fetch Set<Component> dependsOn;
 	
-	Component() {
-		//empty Constructor for no-args
+	public Component() {
 	}
 	
-	Component(String refID, ComponentType type) {
+	public Component(String refID, ComponentType type) {
 		this.refID=refID;
 		this.type=type;
 		this.Tags = new ArrayList<String>();

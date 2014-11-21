@@ -1,6 +1,6 @@
 package jrmds.view;
 
-import jrmds.controller.JRMDS;
+import jrmds.controller.JrmdsMainController;
 import jrmds.controller.model.Project;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.HashSet;
 @RestController
 public class ProjectController {
 	@Autowired
-	private JRMDS ctlr;
+	private JrmdsMainController ctlr;
 
 	@RequestMapping(value="/projects")
 	public String htmlOutput(){

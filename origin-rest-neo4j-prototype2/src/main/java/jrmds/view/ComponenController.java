@@ -15,7 +15,7 @@ import jrmds.user.model.*;
 @RestController
 public class ComponenController {
 	@Autowired
-	private JRMDS ctlr;
+	private JrmdsMainController ctlr;
 	@Autowired
 	private UserManagement usr;
 	

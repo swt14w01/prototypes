@@ -1,6 +1,5 @@
 package jrmds.view;
 
-import jrmds.controller.JRMDS;
 import jrmds.user.UserManagement;
 
 import org.springframework.beans.factory.annotation.Autowired;

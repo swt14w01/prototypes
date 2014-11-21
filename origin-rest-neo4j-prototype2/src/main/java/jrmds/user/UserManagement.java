@@ -19,7 +19,7 @@ public class UserManagement {
 	@Autowired
 	private UserRepository UserRepository;
 	@Autowired 
-	private JRMDS ctrl;
+	private JrmdsMainController ctrl;
 	
 	public RegisteredUser getUser(String username) {
 		RegisteredUser temp = null;
