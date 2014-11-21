@@ -27,8 +27,8 @@ public class SearchController {
 
 	List<Person> personsList;
 
-	@RequestMapping(value = "/getTags", method = RequestMethod.GET)
-	public @ResponseBody List<Person> getTags(@RequestParam String tagName) {
+	@RequestMapping(value = "/getAutoCompleteSuggestions", method = RequestMethod.GET)
+	public @ResponseBody List<Person> getAutoCompleteSuggestions(@RequestParam String tagName) {
 		personsList = new ArrayList<Person>();
 		for (Person person : personRepository.findAll()) {
 			personsList.add(person);

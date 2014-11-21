@@ -26,3 +26,27 @@ if (nameElement.addEventListener) {
 	nameElement.attachEvent("onfocus", nameFocus);
 	nameElement.attachEvent("onblur", nameBlur);
 }
+
+
+
+$('#search_input').autocomplete({
+	serviceUrl : '/getAutoCompleteSuggestions',
+	paramName : "tagName",
+	delimiter : ",",
+	transformResult : function(response) {
+
+		return {
+			//must convert json to javascript object before process
+			suggestions : $.map($.parseJSON(response), function(item) {
+
+				return {
+					value : item.name,
+					data : item.id
+				};
+			})
+
+		};
+
+	}
+
+});

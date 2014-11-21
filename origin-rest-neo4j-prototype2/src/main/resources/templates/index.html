@@ -10,6 +10,7 @@
 <script type="text/javascript" th:src="@{https://code.jquery.com/jquery-2.1.1.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/jquery.autocomplete.js}"></script>
 
+
 </head>
 
 <body>
@@ -22,7 +23,7 @@
 
 				<form id="search" action="#" th:action="@{hello}" method="post" name="search">
 					<input id="search_input" type="text" value="Suchen auf JRMDS" name="search_input" />
-					<script th:src="@{/js/searchbar.js}"></script>
+					<script th:src="@{/js/searchbarFunctions.js}"></script>
 					<button type="submit" id="search_button"></button>
 					<select name="searchoption">
 						<option>alle</option>
@@ -65,30 +66,8 @@
 	</div>
 
 
-	<script>
-  $(document).ready(function() {
  
-	$('#search_input').autocomplete({
-		serviceUrl: '/getTags',
-		paramName: "tagName",
-		delimiter: ",",
-	   transformResult: function(response) {
- 
-		return {      	
-		  //must convert json to javascript object before process
-		  suggestions: $.map($.parseJSON(response), function(item) {
- 
-		      return { value: item.name, data: item.id };
-		   })
- 
-		 };
- 
-            }
- 
-	 });
- 
-  });
-  </script>
+	
 
 
 
