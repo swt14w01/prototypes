@@ -1,72 +1,69 @@
 <!doctype html>
 <html>
-	<head>
-	<title>JRMDS</title>
-	
-	<link href="../static/style/style.css"
-          th:href="@{/style/style.css}"
-          rel="stylesheet" media="screen" />
-	</head>
-	
-	
-	<body>
-		
-		
-		<div id="main">
+<head>
+<title>JRMDS</title>
+
+<link href="../static/style/style.css" th:href="@{/style/style.css}"
+	rel="stylesheet" media="screen" />
+</head>
+
+
+<body>
+
+
+	<div id="main">
 
 		<div id="content_wrapper">
-		
+
 			<div class="container">
-				<div class="container_heading">
-				Demo-Inhalt 1  ждждждЖ
-				</div>
-				
+				<div class="container_heading">Demo-Inhalt 1 ждждждЖ</div>
+
 				<div class="actual_content">
-						
+
 					<div class="error_message">
 						<h4>Login erfolgreich</h4>
-						<div class="error_content">
-						Willkommen im JRMDS
-						Huhu User01
-						</div>
+						<div class="error_content">Willkommen im JRMDS Huhu User01</div>
 					</div>
-					
-					        <form action="#" th:action="@{/hello}" th:object="${person}" method="post">
-            <table>
-                <tr>
-                    <td>Firstame:</td>
-                    <td><input type="text" th:field="*{name}" /></td>
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
-                </tr>
-                 <tr>
-                    <td>Lastname:</td>
-                    <td><input type="text" th:field="*{lastname}" /></td>
-                    <td th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Name Error</td>
-                </tr>
-                <tr>
-                    <td>Age:</td>
-                    <td><input type="text" th:field="*{age}" /></td>
-                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</td>
-                </tr>
-                <tr>
-                    <td><button type="submit">Submit</button></td>
-                </tr>
-            </table>
-        </form>
-					
-					
+
+					<form action="#" th:action="@{/hello}" th:object="${person}"
+						method="post">
+						<table>
+							<tr>
+								<td>Firstame:</td>
+								<td><input type="text" th:field="*{name}" /></td>
+								<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
+									Error</td>
+							</tr>
+							<tr>
+								<td>Lastname:</td>
+								<td><input type="text" th:field="*{lastname}" /></td>
+								<td th:if="${#fields.hasErrors('lastname')}"
+									th:errors="*{lastname}">Name Error</td>
+							</tr>
+							<tr>
+								<td>Age:</td>
+								<td><input type="text" th:field="*{age}" /></td>
+								<td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name
+									Error</td>
+							</tr>
+							<tr>
+								<td><button type="submit">Submit</button></td>
+							</tr>
+						</table>
+					</form>
+
+
 				</div>
 
 			</div>
-		
+
 		</div>
-		
-		<div id="footer">
-		</div>
-		</div>
-		
-		
-		
-	</body>
-	
-	</html>
+
+		<div id="footer"></div>
+	</div>
+
+
+
+</body>
+
+</html>

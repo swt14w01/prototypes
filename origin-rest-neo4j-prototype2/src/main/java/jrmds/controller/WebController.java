@@ -1,9 +1,12 @@
-package jrmds;
+package jrmds.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
+
+import jrmds.Person;
+import jrmds.PersonRepository;
 
 import org.neo4j.graphdb.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -21,14 +21,14 @@ public class JrmdsMainController {
 	private ProjectRepository projectRepository;
 
 	
-	// GETTER AND SETTER
+	// GETTER AND SETTER FOR ALL REPOS
 	public Project getProject(String pname) {
-		Project temp = null;
+		Project result;
 		try (Transaction tx = db.beginTx()) {
-			temp = projectRepository.findByName(pname);
+			result = projectRepository.findByName(pname);
 			tx.success();
 		}
-		return temp;
+		return result;
 	}
 
 	public Constraint getConstraint(Project project, String refID) {
@@ -40,30 +40,30 @@ public class JrmdsMainController {
 		return result;
 	}
 
-	public Concept getConcept(Project project, String RefID) {
-		Component temp = null;
+	public Concept getConcept(Project project, String refID) {
+		Concept result;
 		try (Transaction tx = db.beginTx()) {
-			temp = ruleRepository.findByRefID(RefID, ComponentType.CONCEPT);
+			result = new Concept(ruleRepository.findByRefID(refID, ComponentType.CONCEPT));
 			tx.success();
 		}
-		Concept temp2 = new Concept(temp);
-		return temp2;
+		return result;
 	}
 
-	public Group getGroup(Project project, String RefID) {
+	public Group getGroup(Project project, String refID) {
 		Component temp = null;
+		Group result;
 		try (Transaction tx = db.beginTx()) {
-			temp = ruleRepository.findByRefID(RefID, ComponentType.GROUP);
+			result = new Group(ruleRepository.findByRefID(refID, ComponentType.GROUP));
 			tx.success();
 		}
 		Group temp2 = new Group(temp);
 		return temp2;
 	}
 
-	public QueryTemplate getTemplate(Project project, String RefID) {
+	public QueryTemplate getTemplate(Project project, String refID) {
 		Component temp = null;
 		try (Transaction tx = db.beginTx()) {
-			temp = ruleRepository.findByRefID(RefID, ComponentType.TEMPLATE);
+			temp = ruleRepository.findByRefID(refID, ComponentType.TEMPLATE);
 			tx.success();
 		}
 		QueryTemplate temp2 = new QueryTemplate(temp);
