@@ -38,23 +38,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-            <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-rest</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
-	    <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-neo4j</artifactId>
-        </dependency>
              <dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-neo4j-rest</artifactId>
-			<version>3.2.1.RELEASE</version>
-		</dependency>
+			<version>3.1.4.RELEASE</version>
+             </dependency>
     </dependencies>
 
     <repositories>
@@ -73,4 +65,13 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <dependencyManagement>
+    	<dependencies>
+    		<dependency>
+    			<groupId>org.springframework.data</groupId>
+    			<artifactId>spring-data-neo4j-rest</artifactId>
+    			<version>3.2.1.RELEASE</version>
+    		</dependency>
+    	</dependencies>
+    </dependencyManagement>
 </project>
