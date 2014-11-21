@@ -1,4 +1,4 @@
-package jrmds.controller;
+package jrmds.view;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Controller
-public class WebController extends WebMvcConfigurerAdapter {
+public class ViewController extends WebMvcConfigurerAdapter {
 	
 	@Autowired
 	private SpringRestGraphDatabase db;
@@ -33,6 +33,11 @@ public class WebController extends WebMvcConfigurerAdapter {
         registry.addViewController("/results").setViewName("results");
     }
 
+    
+    @RequestMapping(value="/", method=RequestMethod.GET)
+    public String test() {
+    	return "index";
+    }
     
 
     

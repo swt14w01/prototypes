@@ -1,10 +1,14 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>JRMDS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link href="../static/style/style.css" th:href="@{/style/style.css}"
-	rel="stylesheet" media="screen" />
+<title>JRMDS</title>
+<link th:href="@{http://fonts.googleapis.com/css(family=Lato)}"
+	rel="stylesheet" type="text/css"/>
+<link th:href="@{/style/style.css}"
+	rel="stylesheet" media="screen" type="text/css" />
 </head>
 
 
@@ -16,7 +20,7 @@
 		<div id="content_wrapper">
 
 			<div class="container">
-				<div class="container_heading">Demo-Inhalt 1 ждждждЖ</div>
+				<div class="container_heading">Demo-Inhalt 1 ц√ц└ц√ц└ц√ц└ц╤</div>
 
 				<div class="actual_content">
 
@@ -51,7 +55,8 @@
 							</tr>
 						</table>
 					</form>
-
+					
+					<a th:href="@{index}">test</a>
 
 				</div>
 
