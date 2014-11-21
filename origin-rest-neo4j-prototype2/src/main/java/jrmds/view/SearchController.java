@@ -44,7 +44,7 @@ public class SearchController {
 
 		// iterate a list and filter by tagName
 		for (Person person : personsList) {
-			if (person.getName().contains(tagName)) {
+			if (person.getName().toLowerCase().contains(tagName)) {
 				result.add(person);
 			}
 		}
