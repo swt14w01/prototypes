@@ -5,10 +5,10 @@ public class Constraint extends Rule {
 	public Constraint() {
 		
 	}
-	public Constraint(String RefID) {
-		super(RefID, ComponentType.CONSTRAINT);
+	public Constraint(String refID) {
+		super(refID, ComponentType.CONSTRAINT);
 	}
-	public Constraint(Component cmpt) {
-		super(cmpt);
+	public Constraint(Component component) {
+		super(component);
 	}
 }

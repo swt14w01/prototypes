@@ -70,8 +70,8 @@
 							</tr>
 							<tr>
 								<td>Lastname:</td>
-								<td><input type="text" th:field="*{lastname}" /></td>
-								<td th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Name Error</td>
+								<td><input type="checkbox" th:field="*{lastname}" value="test" /></td>
+								<!-- <td th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Name Error</td>-->
 							</tr>
 							<tr>
 								<td>Age:</td>

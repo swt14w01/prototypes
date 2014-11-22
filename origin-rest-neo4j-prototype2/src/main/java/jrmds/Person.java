@@ -14,7 +14,7 @@ public class Person {
 
     @Size(min=2, max=30)
     private String name;
-    private String lastname;
+    private boolean lastname;
     
 
 	@NotNull
@@ -29,11 +29,11 @@ public class Person {
         this.name = name;
     }
     
-    public String getLastname() {
+    public boolean getLastname() {
   		return lastname;
   	}
 
-  	public void setLastname(String lastname) {
+  	public void setLastname(boolean lastname) {
   		this.lastname = lastname;
   	}
 

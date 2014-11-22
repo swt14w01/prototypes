@@ -21,10 +21,10 @@ public class JrmdsMainController {
 	private ProjectRepository projectRepository;
 
 	// GETTER AND SETTER FOR ALL REPOS
-	public Project getProject(String pname) {
+	public Project getProject(String projectName) {
 		Project result;
 		try (Transaction tx = db.beginTx()) {
-			result = projectRepository.findByName(pname);
+			result = projectRepository.findByName(projectName);
 			tx.success();
 		}
 		return result;
@@ -70,21 +70,21 @@ public class JrmdsMainController {
 		return result;
 	}
 
-	public Component getComponent(Project project, Component cmpt) {
+	public Component getComponent(Project project, Component component) {
 		Component temp = null;
 		try (Transaction tx = db.beginTx()) {
-			temp = ruleRepository.findByRefID(cmpt.getRefID(), cmpt.getType());
+			temp = ruleRepository.findByRefID(component.getRefID(), component.getType());
 			tx.success();
 		}
 		return temp;
 	}
 
 	public Set<Project> getAllProjects() {
-		Set<Project> allprojects = new HashSet<Project>();
+		Set<Project> allProjects = new HashSet<Project>();
 		for (Project node : projectRepository.findAll()) {
-			allprojects.add(node);
+			allProjects.add(node);
 		}
-		return allprojects;
+		return allProjects;
 	}
 
 	public Set<RegisteredUser> getProjectUsers(Project project) {
@@ -113,18 +113,18 @@ public class JrmdsMainController {
 		}
 	}
 
-	public boolean saveComponent(Project project, Component cmpt) {
-		Component temp = getComponent(project, cmpt);
+	public boolean saveComponent(Project project, Component component) {
+		Component temp = getComponent(project, component);
 		if (temp == null) {
 			try (Transaction tx = db.beginTx()) {
-				ruleRepository.save(cmpt);
+				ruleRepository.save(component);
 				tx.success();
 			}
 			return true;
 		} else {
 			// update bestehenden Eintrag
 			try (Transaction tx = db.beginTx()) {
-				temp.copy(cmpt);
+				temp.copy(component);
 				ruleRepository.save(temp);
 				tx.success();
 			}
@@ -143,11 +143,11 @@ public class JrmdsMainController {
 		return booli;
 	}
 
-	public boolean deleteComponent(Project project, Component cmpt) {
+	public boolean deleteComponent(Project project, Component component) {
 		boolean booli = false;
 		try (Transaction tx = db.beginTx()) {
-			ruleRepository.delete(cmpt.getId());
-			if (!ruleRepository.exists(cmpt.getId()))
+			ruleRepository.delete(component.getId());
+			if (!ruleRepository.exists(component.getId()))
 				booli = true;
 			tx.success();
 		}
@@ -155,7 +155,7 @@ public class JrmdsMainController {
 		// what happens, if relations still persist from and to this component?
 	}
 
-	public Set<Component> referecedBy(Project project, Component cmpt) {
+	public Set<Component> referecedBy(Project project, Component component) {
 		// find all Backlinks to this component (which COmponent is using THIS
 		// as dependency
 		Set<Component> temp = new HashSet<Component>();
@@ -178,7 +178,7 @@ public class JrmdsMainController {
 		return temp;
 	}
 
-	public boolean addComponentToProject(Project project, Component cmpt) {
+	public boolean addComponentToProject(Project project, Component component) {
 		// check wether the component is already linked or not
 		// Query for releation CONTAINS
 		return true;

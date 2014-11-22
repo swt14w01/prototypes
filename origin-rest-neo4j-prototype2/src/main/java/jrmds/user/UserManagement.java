@@ -18,24 +18,25 @@ public class UserManagement {
 	private GraphDatabaseService db;
 	@Autowired
 	private UserRepository UserRepository;
-	@Autowired 
-	private JrmdsMainController ctrl;
-	
+	@Autowired
+	private JrmdsMainController controller;
+
 	public RegisteredUser getUser(String username) {
 		RegisteredUser temp = null;
-		try (Transaction tx= db.beginTx()) {
-			temp=UserRepository.findByUsername(username);
+		try (Transaction tx = db.beginTx()) {
+			temp = UserRepository.findByUsername(username);
 			tx.success();
 		}
 		return temp;
 	}
-	
 
-	public Boolean createUser(String username, String password, String emailAdress) {
-		if (getUser(username)==null) {
+	public Boolean createUser(String username, String password,
+			String emailAdress) {
+		if (getUser(username) == null) {
 
 			try (Transaction tx = db.beginTx()) {
-				RegisteredUser temp = new RegisteredUser(username, password, emailAdress);
+				RegisteredUser temp = new RegisteredUser(username, password,
+						emailAdress);
 				UserRepository.save(temp);
 				tx.success();
 			}
@@ -44,15 +45,15 @@ public class UserManagement {
 			return false;
 		}
 	}
-	
 
-	public boolean userWorksOn(RegisteredUser u, Project p) {
-		boolean booli=u.worksOn(p);
-		if (booli) try (Transaction tx = db.beginTx()) {
-			UserRepository.save(u);
+	public boolean userWorksOn(RegisteredUser registredUser, Project project) {
+		boolean worksOn = registredUser.worksOn(project);
+		if (worksOn)
+			try (Transaction tx = db.beginTx()) {
+				UserRepository.save(registredUser);
 
-			tx.success();
-		}
-		return booli;
+				tx.success();
+			}
+		return worksOn;
 	}
 }

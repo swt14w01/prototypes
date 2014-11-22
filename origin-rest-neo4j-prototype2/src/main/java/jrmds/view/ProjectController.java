@@ -13,21 +13,18 @@ import java.util.HashSet;
 @RestController
 public class ProjectController {
 	@Autowired
-	private JrmdsMainController ctlr;
+	private JrmdsMainController controller;
 
-	@RequestMapping(value="/projects")
-	public String htmlOutput(){
-		String temp="";
+	@RequestMapping(value = "/projects")
+	public String htmlOutput() {
+		String temp = "";
 		Set<Project> projectlist = new HashSet<Project>();
-		projectlist = ctlr.getAllProjects();
-		for(Project project :projectlist){
-			temp+=project.getName(); 
+		projectlist = controller.getAllProjects();
+		for (Project project : projectlist) {
+			temp += project.getName();
 		}
-		
+
 		return temp;
 	}
-	
-	
-	
-	
+
 }

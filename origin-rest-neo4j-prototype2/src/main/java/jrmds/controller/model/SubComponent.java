@@ -10,46 +10,56 @@ import org.springframework.data.neo4j.annotation.RelatedTo;
 public abstract class SubComponent extends Component {
 	private String description;
 	private String cypher;
-	@RelatedTo(type="PARAMETER", direction=Direction.BOTH)
+	@RelatedTo(type = "PARAMETER", direction = Direction.BOTH)
 	private @Fetch Set<Parameter> parameters;
-	
-	SubComponent() {
-		//empty Constructor for no-arg
+
+	public SubComponent() {
+		// empty Constructor for no-arg
 	}
-	SubComponent(String RefID, ComponentType type) {
-		super(RefID, type);
-		parameters=new HashSet<Parameter>();
+
+	public SubComponent(String refID, ComponentType type) {
+		super(refID, type);
+		parameters = new HashSet<Parameter>();
 	}
-	SubComponent(Component cmpt) {
-		super(cmpt.getRefID(), cmpt.getType());
-		super.setTags(cmpt.getTags());
-		description=cmpt.getDescription();
-		cypher=cmpt.getCypher();
-		parameters=cmpt.getParameters();
+
+	public SubComponent(Component component) {
+		super(component.getRefID(), component.getType());
+		super.setTags(component.getTags());
+		description = component.getDescription();
+		cypher = component.getCypher();
+		parameters = component.getParameters();
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
+
 	public String getCypher() {
 		return cypher;
 	}
+
 	public Set<Parameter> getParameters() {
 		return parameters;
 	}
+
 	public void setDescription(String desc) {
-		this.description=desc;
+		this.description = desc;
 	}
+
 	public void setCypher(String cypher) {
-		this.cypher=cypher;
+		this.cypher = cypher;
 	}
-	public void setParameters(Set<Parameter> para) {
-		this.parameters = para;
+
+	public void setParameters(Set<Parameter> parameters) {
+		this.parameters = parameters;
 	}
-	public void addParameter(Parameter para) {
-		this.parameters.add(para);
+
+	public void addParameter(Parameter parameter) {
+		parameters.add(parameter);
 	}
+
 	public void deleteParameter(Parameter para) {
+
 	}
 
 }
