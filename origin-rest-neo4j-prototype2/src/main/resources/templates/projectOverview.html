@@ -1,477 +1,324 @@
 <!doctype html>
-<html>
-	<head>
-	<title>JRMDS</title>
-	<link rel="stylesheet" type="text/css" href="../style/style.css">
-	
-	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	<link href="http://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<meta charset="utf-8">
-	</head>
-	
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>JRMDS</title>
+<link th:href="@{http://fonts.googleapis.com/css(family=Lato)}" rel="stylesheet" type="text/css" />
+<link th:href="@{http://fonts.googleapis.com/css(family=Oleo+Script)}" rel="stylesheet" type="text/css" />
+<link th:href="@{http://fonts.googleapis.com/css(family=Roboto)}" rel="stylesheet" type="text/css" />
+<link th:href="@{/style/style.css}" rel="stylesheet" media="screen" type="text/css" />
+<script type="text/javascript" th:src="@{https://code.jquery.com/jquery-2.1.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.autocomplete.js}"></script>
+
+</head>
 
 
+<body>
 
-	
-	
-	<body>
-		
-		<script type="text/javascript">
+	<script type="text/javascript">
 		jQuery(document).ready(function() {
-			$("#menu_group").click(function(){
-			$("#tab1").toggle("fast");
-			$(this).toggleClass("active");
+			$("#menu_group").click(function() {
+				$("#tab1").toggle("fast");
+				$(this).toggleClass("active");
 			});
-			$("#menu_concept").click(function(){
-			$("#tab2").toggle("fast");
-			$(this).toggleClass("active");
+			$("#menu_concept").click(function() {
+				$("#tab2").toggle("fast");
+				$(this).toggleClass("active");
 			});
-			$("#menu_contraint").click(function(){
-			$("#tab3").toggle("fast");
-			$(this).toggleClass("active");
+			$("#menu_contraint").click(function() {
+				$("#tab3").toggle("fast");
+				$(this).toggleClass("active");
 			});
-			$("#menu_template").click(function(){
-			$("#tab4").toggle("fast");
-			$(this).toggleClass("active");
+			$("#menu_template").click(function() {
+				$("#tab4").toggle("fast");
+				$(this).toggleClass("active");
 			});
 		});
-		</script>
-		<div id="main">
+	</script>
+	<div id="main">
 		<div id="header_wrapper">
 			<div id="header">
-				<a href="index.html"><img id="header_logo" src="../img/logo.png" alt="logo"/></a>
-				
+				<a href="index.html"><img id="header_logo" src="../img/logo.png" alt="logo" /></a>
+
 				<form id="search" action="./searchResults.html">
-				 <input id="search_input" type="text" value="Search in Project001"  onfocus="(this.value == 'Search in Project 001') && (this.value = ''); this.style.color='black';" onblur="(this.value == '') && (this.value = 'Search in Project001'); this.style.color='#d6d6d6';" />
-				 <input type="submit" id="search_button" value="">
-				 <select name="searchoption">
-					  <option selected>alle</option>
-					  <option>Gruppe</option>
-					  <option>Constrain</option>
-					  <option>Concept</option>
-					  <option>Template</option>
-				</select>
+					<input id="search_input" type="text" value="Search in Project001"
+						onfocus="(this.value == 'Search in Project 001') && (this.value = ''); this.style.color='black';"
+						onblur="(this.value == '') && (this.value = 'Search in Project001'); this.style.color='#d6d6d6';" /> <input type="submit"
+						id="search_button" value=""> <select name="searchoption">
+						<option selected>alle</option>
+						<option>Gruppe</option>
+						<option>Constrain</option>
+						<option>Concept</option>
+						<option>Template</option>
+					</select>
 				</form>
-				 
-				 <div id="welcome_user">
-					<a href="./projects.html"><img src="../img/projects.png" alt="Projekte" class="symbol_small"/>Projekte</a>
-					<a href="./usermanagement.html"><img src="../img/user.png" alt="Projekte" class="symbol_small"/>swt14w01</a>
-					
-					<a href="./index.html"><img src="../img/log_out.png" alt="LogOut" class="symbol_small"/></a>
-				 </div>
-				
-				<div style="clear:both;">
+
+				<div id="welcome_user">
+					<a href="./projects.html"><img src="../img/projects.png" alt="Projekte" class="symbol_small" />Projekte</a> <a
+						href="./usermanagement.html"><img src="../img/user.png" alt="Projekte" class="symbol_small" />swt14w01</a> <a href="./index.html"><img
+						src="../img/log_out.png" alt="LogOut" class="symbol_small" /></a>
 				</div>
-				
+
+				<div style="clear: both;"></div>
+
 			</div>
 		</div>
 		<div id="content_wrapper">
-		
+
 			<div class="container">
 				<div class="container_heading">
-					<a href="./projectProps.html" class="project_name"><img src="../img/projects.png" alt="Projekte" class="symbol_small"><span class="project_title">Projekt001</span></a> / Übersicht
+					<a href="./projectProps.html" class="project_name"><img src="../img/projects.png" alt="Projekte" class="symbol_small"><span
+						class="project_title">Projekt001</span></a> / Übersicht
 				</div>
-				
+
 				<div class="actual_content">
-						
+
 					<div class="tabs">
 						<ul class="tab-links">
-							<li id="menu_group" class="active"><a href="#"> <img class="symbol_small" src="../img/group.png" alt="Groups">Groups<span class="bold_attribute">(3)</span></a></li>
-							<li id="menu_concept"><a href="#"><img class="symbol_small" src="../img/concept.png" alt="Groups">Concepts <span class="bold_attribute">(25)</span>	 </a></li>
-							<li id="menu_contraint"><a href="#"><img class="symbol_small" src="../img/constraint.png" alt="Groups">Constraints <span class="bold_attribute">(12) </span></a></li>
-							<li id="menu_template"><a href="#"><img class="symbol_small" src="../img/template.png" alt="Groups">Templates <span class="bold_attribute">(7) </span></a></li>
-							<li>
-								<a href="#tab4">
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-									<a href="#" class="tag">java</a>
-									<a href="#" class="tag">test</a>
-									<a href="#" class="tag">hallo</a>
-									<a href="#" class="tag">tag4</a>
-								</a>
-							</li>
+							<li id="menu_group" class="active"><a href="#"> <img class="symbol_small" src="../img/group.png" alt="Groups">Groups<span
+									class="bold_attribute">(3)</span></a></li>
+							<li id="menu_concept"><a href="#"><img class="symbol_small" src="../img/concept.png" alt="Groups">Concepts <span
+									class="bold_attribute">(25)</span> </a></li>
+							<li id="menu_contraint"><a href="#"><img class="symbol_small" src="../img/constraint.png" alt="Groups">Constraints <span
+									class="bold_attribute">(12) </span></a></li>
+							<li id="menu_template"><a href="#"><img class="symbol_small" src="../img/template.png" alt="Groups">Templates <span
+									class="bold_attribute">(7) </span></a></li>
+							<li><a href="#tab4"> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a> <a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+									href="#" class="tag">tag4</a>
+							</a></li>
 						</ul>
- 
+
 						<div class="tab-content">
 							<div id="tab1" class="tab active">
 								<ul class="result_table" id="groups_table">
 									<li class="result_table_heading">
 										<ul class="result_item">
-										<li class="item_name">Name</li>
-										<li class="item_tags">Tags</li>
-										<li class="item_description">Beschreibung</li>
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editGroup.html"> 
-													<img class="symbol_small" src="../img/group.png" alt="Groups"> Gruppe 1<span class="bold_attribute">(90)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
-										<li class="item_description">
-											Beschreibung
-										</li>										
-											
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editGroup1.html">
-													<img class="symbol_small" src="../img/group.png" alt="Groups"> Gruppe 2<span class="bold_attribute">(44)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
+											<li class="item_name">Name</li>
+											<li class="item_tags">Tags</li>
 											<li class="item_description">Beschreibung</li>
-											
 										</ul>
 									</li>
 									<li>
 										<ul class="result_item">
-											<li class="item_name">
-												<a href="editGroup.html">
-													<img class="symbol_small" src="../img/group.png" alt="Groups">Gruppe 3<span class="bold_attribute">(17)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">json</a>
-												<a href="#" class="tag">jstl</a>
-												<a href="#" class="tag">neo4j</a>
-											</li>
+											<li class="item_name"><a href="editGroup.html"> <img class="symbol_small" src="../img/group.png" alt="Groups">
+													Gruppe 1<span class="bold_attribute">(90)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
 											<li class="item_description">Beschreibung</li>
-											
+
 										</ul>
 									</li>
-									
-									
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editGroup1.html"> <img class="symbol_small" src="../img/group.png" alt="Groups">
+													Gruppe 2<span class="bold_attribute">(44)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editGroup.html"> <img class="symbol_small" src="../img/group.png" alt="Groups">Gruppe
+													3<span class="bold_attribute">(17)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">json</a> <a href="#" class="tag">jstl</a> <a
+												href="#" class="tag">neo4j</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+
+
 								</ul>
-							
+
 							</div>
-					 
+
 							<div id="tab2" class="tab">
 								<ul class="result_table" id="groups_table">
 									<li class="result_table_heading">
 										<ul class="result_item">
-										<li class="item_name">Name</li>
-										<li class="item_tags">Tags</li>
-										<li class="item_description">Beschreibung</li>
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editRule.html"> 
-													<img class="symbol_small" src="../img/concept.png" alt="Groups"> Concept 1<span class="bold_attribute">(90)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
-										<li class="item_description">
-											Beschreibung
-										</li>										
-											
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editRule1.html">
-													<img class="symbol_small" src="../img/concept.png" alt="Groups"> Concept 2<span class="bold_attribute">(44)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
+											<li class="item_name">Name</li>
+											<li class="item_tags">Tags</li>
 											<li class="item_description">Beschreibung</li>
-											
 										</ul>
 									</li>
 									<li>
 										<ul class="result_item">
-											<li class="item_name">
-												<a href="editRule.html">
-													<img class="symbol_small" src="../img/concept.png" alt="Groups">Concept 3<span class="bold_attribute">(17)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">json</a>
-												<a href="#" class="tag">jstl</a>
-												<a href="#" class="tag">neo4j</a>
-											</li>
+											<li class="item_name"><a href="editRule.html"> <img class="symbol_small" src="../img/concept.png" alt="Groups">
+													Concept 1<span class="bold_attribute">(90)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
 											<li class="item_description">Beschreibung</li>
-											
+
 										</ul>
 									</li>
-									
-									
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editRule1.html"> <img class="symbol_small" src="../img/concept.png" alt="Groups">
+													Concept 2<span class="bold_attribute">(44)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editRule.html"> <img class="symbol_small" src="../img/concept.png" alt="Groups">Concept
+													3<span class="bold_attribute">(17)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">json</a> <a href="#" class="tag">jstl</a> <a
+												href="#" class="tag">neo4j</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+
+
 								</ul>
 							</div>
-					 
+
 							<div id="tab3" class="tab">
 								<ul class="result_table" id="groups_table">
 									<li class="result_table_heading">
 										<ul class="result_item">
-										<li class="item_name">Name</li>
-										<li class="item_tags">Anderer Header</li>
-										<li class="item_description">Beschreibung</li>
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editRule.html"> 
-													<img class="symbol_small" src="../img/constraint.png" alt="Groups"> Constrain 1<span class="bold_attribute">(90)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
-										<li class="item_description">
-											Beschreibung
-										</li>										
-											
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editRule.html">
-													<img class="symbol_small" src="../img/constraint.png" alt="Groups"> Constrain 2<span class="bold_attribute">(44)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
+											<li class="item_name">Name</li>
+											<li class="item_tags">Anderer Header</li>
 											<li class="item_description">Beschreibung</li>
-											
 										</ul>
 									</li>
 									<li>
 										<ul class="result_item">
-											<li class="item_name">
-												<a href="editRule.html">
-													<img class="symbol_small" src="../img/constraint.png" alt="Groups">Constrain 3<span class="bold_attribute">(17)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">json</a>
-												<a href="#" class="tag">jstl</a>
-												<a href="#" class="tag">neo4j</a>
-											</li>
+											<li class="item_name"><a href="editRule.html"> <img class="symbol_small" src="../img/constraint.png" alt="Groups">
+													Constrain 1<span class="bold_attribute">(90)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
 											<li class="item_description">Beschreibung</li>
-											
+
 										</ul>
 									</li>
-									
-									
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editRule.html"> <img class="symbol_small" src="../img/constraint.png" alt="Groups">
+													Constrain 2<span class="bold_attribute">(44)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editRule.html"> <img class="symbol_small" src="../img/constraint.png" alt="Groups">Constrain
+													3<span class="bold_attribute">(17)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">json</a> <a href="#" class="tag">jstl</a> <a
+												href="#" class="tag">neo4j</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+
+
 								</ul>
 							</div>
-					 
+
 							<div id="tab4" class="tab">
 								<ul class="result_table" id="groups_table">
 									<li class="result_table_heading">
 										<ul class="result_item">
-										<li class="item_name">Name</li>
-										<li class="item_tags">Tags</li>
-										<li class="item_description">Beschreibung</li>
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editTemplate.html"> 
-													<img class="symbol_small" src="../img/template.png" alt="Groups"> Template 1<span class="bold_attribute">(90)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
-										<li class="item_description">
-											Beschreibung
-										</li>										
-											
-										</ul>
-									</li>
-									<li>
-										<ul class="result_item">
-											<li class="item_name">
-												<a href="editTemplate.html">
-													<img class="symbol_small" src="../img/template.png" alt="Groups"> Template 2<span class="bold_attribute">(44)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">test</a>
-												<a href="#" class="tag">hallo</a>
-												<a href="#" class="tag">tag4</a>
-											</li>
+											<li class="item_name">Name</li>
+											<li class="item_tags">Tags</li>
 											<li class="item_description">Beschreibung</li>
-											
 										</ul>
 									</li>
 									<li>
 										<ul class="result_item">
-											<li class="item_name">
-												<a href="editTemplate.html">
-													<img class="symbol_small" src="../img/template.png" alt="Groups">Template 3<span class="bold_attribute">(17)</span>
-												</a>
-											</li>
-											<li class="item_tags">
-												<a href="#" class="tag">java</a>
-												<a href="#" class="tag">json</a>
-												<a href="#" class="tag">jstl</a>
-												<a href="#" class="tag">neo4j</a>
-											</li>
+											<li class="item_name"><a href="editTemplate.html"> <img class="symbol_small" src="../img/template.png" alt="Groups">
+													Template 1<span class="bold_attribute">(90)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
 											<li class="item_description">Beschreibung</li>
-											
+
 										</ul>
 									</li>
-									
-									
-								</ul>						
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editTemplate.html"> <img class="symbol_small" src="../img/template.png" alt="Groups">
+													Template 2<span class="bold_attribute">(44)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">test</a> <a href="#" class="tag">hallo</a> <a
+												href="#" class="tag">tag4</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+									<li>
+										<ul class="result_item">
+											<li class="item_name"><a href="editTemplate.html"> <img class="symbol_small" src="../img/template.png" alt="Groups">Template
+													3<span class="bold_attribute">(17)</span>
+											</a></li>
+											<li class="item_tags"><a href="#" class="tag">java</a> <a href="#" class="tag">json</a> <a href="#" class="tag">jstl</a> <a
+												href="#" class="tag">neo4j</a></li>
+											<li class="item_description">Beschreibung</li>
+
+										</ul>
+									</li>
+
+
+								</ul>
 							</div>
-							
+
 						</div>
 					</div>
-					
 
-					
+
+
 				</div>
 
 			</div>
-		
-		</div>
-		
-		<div id="footer">
-		</div>
+
 		</div>
 
-		
-	</body>
-	
-	
-	
-	</html>
+		<div id="footer"></div>
+	</div>
+
+
+</body>
+
+
+
+</html>

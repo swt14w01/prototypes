@@ -38,9 +38,9 @@ public class ViewController extends WebMvcConfigurerAdapter {
 		return "index";
 	}
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@RequestMapping(value = "/start", method = RequestMethod.GET)
 	public String showForm(Person person) {
-		return "index2";
+		return "start";
 	}
 
 	@RequestMapping(value = "/guests", method = RequestMethod.GET)
@@ -64,7 +64,7 @@ public class ViewController extends WebMvcConfigurerAdapter {
 		return mav;
 	}
 
-	@RequestMapping(value = "/hello", method = RequestMethod.POST)
+	@RequestMapping(value = "/addPerson", method = RequestMethod.POST)
 	public String checkPersonInfo(@Valid Person person,
 			BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
