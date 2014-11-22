@@ -22,70 +22,65 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Controller
 public class ViewController extends WebMvcConfigurerAdapter {
-	
+
 	@Autowired
 	private SpringRestGraphDatabase db;
 	@Autowired
-	public PersonRepository perrepo;
+	public PersonRepository personRepository;
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/results").setViewName("results");
-    }
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/results").setViewName("results");
+	}
 
-    
-    @RequestMapping(value="/", method=RequestMethod.GET)
-    public String test() {
-    	return "index";
-    }
-    
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String test() {
+		return "index";
+	}
 
-    
-    @RequestMapping(value="/hello", method=RequestMethod.GET)
-    public String showForm(Person person) {
-        return "index2";
-    }
-    
-    
-   
-    @RequestMapping(value = "/guests", method = RequestMethod.GET)
-    public String showGuestList(Model model) {
-    	List<Person> personsList = new ArrayList<Person>();
-    	for(Person pers: perrepo.findAll()){
-    		personsList.add(pers);
-    	}
-    model.addAttribute("guests", personsList);
-    return "content :: resultsList";
-    }
-    
-    
-    @RequestMapping(value = "/content", method = RequestMethod.GET)
-    public ModelAndView persons() {
-        ModelAndView mav = new ModelAndView("personlist");
-        List<Person> personsList = new ArrayList<Person>();
-    	for(Person person: perrepo.findAll()){
-    		personsList.add(person);
-    	}
-        mav.addObject("personslist", personsList);
-        return mav;
-    }
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	public String showForm(Person person) {
+		return "index2";
+	}
 
-    @RequestMapping(value="/hello", method=RequestMethod.POST)
-    public String checkPersonInfo(@Valid Person person, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "form";
-        }
-        Transaction tx = db.beginTx();
-        try {
-        perrepo.save(person);
-        System.out.println(person.getName());
-        tx.success();
-        } finally {
-            tx.close();
-        }
-        
-        return "redirect:/results";
-      
-    }
+	@RequestMapping(value = "/guests", method = RequestMethod.GET)
+	public String showGuestList(Model model) {
+		List<Person> personsList = new ArrayList<Person>();
+		for (Person pers : personRepository.findAll()) {
+			personsList.add(pers);
+		}
+		model.addAttribute("guests", personsList);
+		return "content :: resultsList";
+	}
+
+	@RequestMapping(value = "/content", method = RequestMethod.GET)
+	public ModelAndView persons() {
+		ModelAndView mav = new ModelAndView("personlist");
+		List<Person> personsList = new ArrayList<Person>();
+		for (Person person : personRepository.findAll()) {
+			personsList.add(person);
+		}
+		mav.addObject("personslist", personsList);
+		return mav;
+	}
+
+	@RequestMapping(value = "/hello", method = RequestMethod.POST)
+	public String checkPersonInfo(@Valid Person person,
+			BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "form";
+		}
+		Transaction tx = db.beginTx();
+		try {
+			personRepository.save(person);
+			System.out.println(person.getName());
+			tx.success();
+		} finally {
+			tx.close();
+		}
+
+		return "redirect:/results";
+
+	}
 
 }

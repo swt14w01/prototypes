@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 	@Autowired
-	private UserManagement usr;
+	private UserManagement userManagement;
 	
 	@RequestMapping(value="/login")
 	public String htmlOutput() {

@@ -1,4 +1,4 @@
-﻿body {
+body {
 	width:100%;
 	margin:0px auto;
 	font-family:'Lato';
@@ -432,7 +432,7 @@ max-width: 80%;
   border-top: 1px solid #eee;
 }
 
-/*************** für projectProps *************************/
+/*************** f�r projectProps *************************/
 
 .memberwidth{
 	width:600px;
@@ -501,3 +501,16 @@ table > tr > td.width200{
 	width:200px;	
 }
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; font-size:14px}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong {  color: #3399FF; }	
