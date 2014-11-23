@@ -23,12 +23,11 @@
 
 
 			<div class="error_message">
-				<h4>Deletion of Concept_xy</h4>
+				<h4>Deletion Concept_xy</h4>
 				<div class="error_content">
-					Are you shure about that? If you delete this rule, the following rules will be orphaned!<br> <a href="./editRule1.html">Concept
-						xy</a><br> <a href="./editRule.html">another Concept</a><br>
-					<br> <input type="submit" value="jo" onClick="window.history.back();return false;"> <input type="submit" value="nö"
-						onClick="window.history.back();return false;">
+					<p>Are you shure about that? If you delete this rule, the following rules will be orphaned!</p> <a th:href="@{editRule1}">Concept
+						xy</a> <a th:href="@{editRule}">another Concept</a>
+					 <input type="submit" value="jo"/> <input type="submit" value="nö"/>
 				</div>
 			</div>
 

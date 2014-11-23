@@ -15,15 +15,7 @@
 
 
 <body>
-	<script type="text/javascript">
-		function Hinzufuegen() {
-			var Elementknoten = document.createElement(URI);
-			var Textknoten = document
-					.createTextNode(document.Formular.Elementinhalt.value);
-			Elementknoten.appendChild(Textknoten);
-			document.getElementById("User").appendChild(Elementknoten);
-		}
-	</script>
+	<script type="text/javascript" th:src="@{/js/projectProps.js}"></script>
 
 	<div id="main">
 		<div id="header_wrapper" th:replace="fragments/header :: header"></div>
@@ -36,10 +28,10 @@
 					<form id="EditWindow">
 
 						<h1>
-							Projekt jQAssistant &nbsp; <input type="button" value="Bearbeiten" onclick="">
+							Projekt jQAssistant &nbsp; <input type="button" value="Bearbeiten" onclick="" />
 						</h1>
 
-						<span>Das ist eine Beschreibung des Projektes &nbsp; <input type="button" value="Bearbeiten" onclick=""></span>
+						<span>Das ist eine Beschreibung des Projektes &nbsp; <input type="button" value="Bearbeiten" onclick="" /></span>
 						<p>&nbsp;</p>
 
 						<table style="width: 95%">
@@ -54,19 +46,19 @@
 										<div class="popover">
 											<div class="member">
 												<div class="projectmember">
-													<a href="userprofile.html">Dirk Mahler</a><input type="checkbox">
+													<a href="userprofile.html">Dirk Mahler</a><input type="checkbox" />
 												</div>
 												<div class="projectmember">
-													<a href="userprofile.html">Robert Menger</a><input type="checkbox">
+													<a href="userprofile.html">Robert Menger</a><input type="checkbox" />
 												</div>
 												<div class="projectmember">
-													<a href="userprofile.html">Person 3</a><input type="checkbox">
+													<a href="userprofile.html">Person 3</a><input type="checkbox" />
 												</div>
 												<div class="projectmember">
-													<a href="userprofile.html">Person 5</a><input type="checkbox">
+													<a href="userprofile.html">Person 5</a><input type="checkbox" />
 												</div>
 												<div class="projectmember">
-													<a href="userprofile.html">Person 7</a><input type="checkbox">
+													<a href="userprofile.html">Person 7</a><input type="checkbox" />
 												</div>
 											</div>
 										</div>
@@ -76,16 +68,15 @@
 							</tr>
 							<tr>
 								<td><span style="font-size: xx-small;">Nur für Projektleiter</span></td>
-								<td><input type="button" value="Löschen" onclick="" style="width: 82px; float: right; margin-right: 128px;"></td>
+								<td><input type="button" value="Löschen" onclick="" style="width: 82px; float: right; margin-right: 128px;" /></td>
 							</tr>
 							<tr>
 								<td><span style="font-size: xx-small;">und Admin sichtbar</span></td>
-								<td><input type="text" name="Elementinhalt" size="69"> <input type="button" value="Hinzufügen" onclick="Hinzufuegen()">
-								</td>
+								<td><input type="text" name="Elementinhalt" size="69" /> <input type="button" value="Hinzufügen" onclick="Hinzufuegen()" /></td>
 							</tr>
 						</table>
-						<br>
-						<br>
+
+
 
 						<table style="width: 95%">
 							<colgroup>
@@ -102,27 +93,27 @@
 												<div class="extref">
 													<a href="https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml">
 														https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml</a><input align="right"
-														type="checkbox">
+														type="checkbox"/>
 												</div>
 												<div class="extref">
 													<a href="https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml">
 														https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml</a><input align="right"
-														type="checkbox">
+														type="checkbox"/>
 												</div>
 												<div class="extref">
 													<a href="https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml">
 														https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml</a><input align="right"
-														type="checkbox">
+														type="checkbox"/>
 												</div>
 												<div class="extref">
 													<a href="https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml">
 														https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml</a><input align="right"
-														type="checkbox">
+														type="checkbox"/>
 												</div>
 												<div class="extref">
 													<a href="https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml">
 														https://github.com/buschmais/jqassistant/blob/master/examples/rules/naming/jqassistant/controller.xml</a><input align="right"
-														type="checkbox">
+														type="checkbox"/>
 												</div>
 
 											</div>
@@ -133,11 +124,11 @@
 							</tr>
 							<tr>
 								<td><span style="font-size: xx-small;"></span></td>
-								<td><input type="button" value="Löschen" onclick="" style="width: 82px; float: right; margin-right: 128px;"></td>
+								<td><input type="button" value="Löschen" onclick="" style="width: 82px; float: right; margin-right: 128px;" /></td>
 							</tr>
 							<tr>
 								<td><span style="font-size: xx-small;">&nbsp;</span></td>
-								<td><input type="text" name="Elementinhalt" size="69"> <input type="button" value="Hinzufügen" onclick="Hinzufuegen()">
+								<td><input type="text" name="Elementinhalt" size="69"/> <input type="button" value="Hinzufügen" onclick="Hinzufuegen()" />
 
 								</td>
 							</tr>
@@ -150,8 +141,8 @@
 
 					<p>
 					<form action="./projectOverview.html">
-						<br>
-						<br> Save all changes <input type="submit" value="save"> or discard <input type="submit" value="cancel">
+
+						Save all changes <input type="submit" value="save" /> or discard <input type="submit" value="cancel" />
 					</form>
 					</p>
 				</div>

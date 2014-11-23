@@ -30,7 +30,7 @@
 						<table style="width: 95%">
 							<tr>
 								<td><span>ID:</span></td>
-								<td><input type="text" size="60"></td>
+								<td><input type="text" size="60" /></td>
 							</tr>
 							<tr>
 								<td><span>Description:</span></td>
@@ -41,8 +41,8 @@
 								<td><textarea rows="4" cols="60"></textarea></td>
 							</tr>
 						</table>
-						<br>
-						<br> <strong>Parameters:</strong><br>
+
+						<strong>Parameters:</strong>
 						<table>
 							<tr>
 								<td>#</td>
@@ -50,67 +50,37 @@
 								<td>Name</td>
 								<td>Value</td>
 							</tr>
-							<td>1</td>
-							<td><input type="checkbox"></td>
-							<td><input type="text" size="40"></td>
-							<td><input type="text" size="40"></td>
+							<tr>
+								<td>1</td>
+								<td><input type="checkbox" /></td>
+								<td><input type="text" size="40" /></td>
+								<td><input type="text" size="40" /></td>
 							</tr>
 							<tr>
 								<td>2</td>
-								<td><input type="checkbox"></td>
-								<td><input type="text" size="40"></td>
-								<td><input type="text" size="40"></td>
+								<td><input type="checkbox" /></td>
+								<td><input type="text" size="40" /></td>
+								<td><input type="text" size="40" /></td>
 							</tr>
 							<TR>
-								<TD colspan="4"><input type="button" value="-" onClick="minus();"> <input type="button" value="+" onClick="plus();"></TD>
+								<TD colspan="4"><input type="button" value="-" onClick="minus();" /> <input type="button" value="+" onClick="plus();" /></TD>
 							</TR>
 							<TR>
 								<TD colspan="4">
 									<div id="dynamisch" width="100%"></div>
 								</TD>
 							</TR>
-						</Table>
-						<input type="reset" value="Reset"><input type="button" name="delete" value="Löschen" onClick="return confirmDelete();"><input
+						</table>
+						<input type="reset" value="Reset" /><input type="button" name="delete" value="Löschen" onClick="return confirmDelete();" /><input
 							type="button" name="abort" value="Abbrechen" onClick="return redirectToIndex();" />
 					</form>
 					<form action="./index.html">
-						<input type="submit" name="submit" value="Speichern">
+						<input type="submit" name="submit" value="Speichern" />
 					</form>
 
+					<script type="text/javascript" th:src="@{/js/editTemplate.js}"></script>
 
-					<script>
-						var feld = 3;
 
-						function plus() {
-							if (feld <= 7) {
-								document.getElementById("dynamisch").innerHTML += "<Table border=0><TR><td>"
-										+ feld
-										+ "</td><td width='45'><input type='checkbox' ></td><td><input type='text' size='40'></td><td><input type='text' size='40'></td></tr></table>";
-								feld++;
-							}
-						}
-
-						function minus() {
-							if (feld > 3) {
-								feld--;
-								document.getElementById("dynamisch").innerHTML = "";
-								for (var zaehler = 3; zaehler < feld; zaehler++) {
-									document.getElementById("dynamisch").innerHTML += "<Table border=0><TR><td>"
-											+ zaehler
-											+ "</td><td width='45'><input type='checkbox' ></td><td><input type='text' size='40'></td><td><input type='text' size='40'></td></tr></table>";
-								}
-							}
-						}
-
-						function confirmDelete() {
-							window.location = "./confirmTemplateDelete.html"
-						}
-
-						function redirectToIndex() {
-							window.location = "./index.html";
-
-						}
-					</script>
 				</div>
 
 			</div>

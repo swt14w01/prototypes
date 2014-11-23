@@ -25,9 +25,8 @@
 			<div class="error_message">
 				<h4>Confirm deletion of references</h4>
 				<div class="error_content">
-					Warning, the following Concept will remain orphaned:<br> <a href="./editRule1.html">Concept xy</a><br> <input type="submit"
-						value="jo" onClick="window.history.back();return false;"> <input type="submit" value="nö"
-						onClick="window.history.back();return false;">
+					Warning, the following Concept will remain orphaned: <a th:href="@{editRule1}">Concept xy</a> <input type="submit" th:value="jo" /> <input
+						type="submit" th:value="nö" />
 				</div>
 			</div>
 

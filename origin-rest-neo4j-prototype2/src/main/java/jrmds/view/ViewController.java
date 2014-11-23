@@ -40,7 +40,7 @@ public class ViewController extends WebMvcConfigurerAdapter {
 
 	@RequestMapping(value = "/start", method = RequestMethod.GET)
 	public String showForm(Person person) {
-		return "start";
+		return "usermanagement";
 	}
 
 	@RequestMapping(value = "/guests", method = RequestMethod.GET)
