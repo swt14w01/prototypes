@@ -54,7 +54,29 @@ public abstract class Component {
 	public void setTags(List<String> Tags) {
 		this.Tags.addAll(Tags);
 	}
-	
+	public void deleteTag(String Tag) {
+		
+	}
+	public boolean addReference(Component cmpt) {
+		if (this.dependsOn == null) dependsOn=new HashSet<Component>();
+		if (this.dependsOn.contains(cmpt)) return false;
+		//check illegal dependencies
+		if (this.type==ComponentType.TEMPLATE) return false;
+		if (this.type==ComponentType.GROUP) {
+			if (cmpt.getType() == ComponentType.TEMPLATE) return false;
+		}
+		if (this.type==ComponentType.CONCEPT || this.type==ComponentType.CONSTRAINT) {
+			if (cmpt.getType() == ComponentType.GROUP) return false;
+			//if dependson contains one template...
+			//
+		}
+		
+		dependsOn.add(cmpt);
+		return true;
+	}
+	public void deleteReference(Component cmpt) {
+		this.dependsOn.remove(cmpt);
+	}
 	public void copy(Component cmpt) {
 		this.id=cmpt.getId();
 		this.refID=cmpt.getRefID();
@@ -85,7 +107,7 @@ public abstract class Component {
 	}
 	public void setParameters(Set<Parameter> para) {
 	}
-	public void addParameters(Parameter para) {
+	public void addParameter(Parameter para) {
 	}
 	public void setSeverity(String sev) {
 	}

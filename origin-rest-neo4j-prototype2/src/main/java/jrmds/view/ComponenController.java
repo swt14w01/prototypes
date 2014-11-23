@@ -22,9 +22,41 @@ public class ComponenController {
 	@RequestMapping(value="/editRules")
 	public String htmlRules() {
 		String temp="";
-
+		Project p = new Project("testpro");
+		controller.saveProject(p);
+				
+		Component foo1 = new Concept("model:Viewblubb");
+		foo1.setDescription("View blabla");
+		foo1.addTag("supergeil");
+		foo1.addTag("bar");
+		foo1.setCypher("match (n) return n;");
+		
+		controller.saveComponent(p, foo1);
+		controller.addComponentToProject(p, foo1);
+		
 		//Ausgeben des aktuellen Inhaltes:
-		Constraint foo = controller.getConstraint(null, null);
+		Component foo = controller.getConstraint(null, null);
+		foo = new Constraint("model:test");
+		foo.addParameter(new Parameter("testpara",25));
+		foo.addParameter(new Parameter("paralyse","beep"));
+		foo.setDescription("blubbblubb");
+		foo.setCypher("match (n)-[r]-() set r=n");
+		foo.addTag("one");
+		foo.addTag("two");
+		
+		controller.saveComponent(p, foo);
+		controller.addComponentToProject(p, foo);
+		
+		
+		Component foo2 = new Concept("model:Controlblubb");
+		foo2.setDescription("Control blabla");
+		foo2.addTag("supergeil");
+		foo2.addTag("bar");
+		foo2.setCypher("match (z) return n;");
+		foo2.addReference(foo);
+		
+		controller.saveComponent(p, foo2);
+		controller.addComponentToProject(p, foo2);
 		
 		//suche alle Parameter zusammen
 		Set<Parameter> bar = foo.getParameters();
