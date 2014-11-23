@@ -70,13 +70,4 @@
         </pluginRepository>
     </pluginRepositories>
 
-    <dependencyManagement>
-    	<dependencies>
-    		<dependency>
-    			<groupId>org.springframework.data</groupId>
-    			<artifactId>spring-data-neo4j-rest</artifactId>
-    			<version>3.2.1.RELEASE</version>
-    		</dependency>
-    	</dependencies>
-    </dependencyManagement>
 </project>
