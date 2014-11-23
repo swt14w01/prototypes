@@ -25,7 +25,7 @@
 				<div class="container_heading">Projekteigenschaften</div>
 
 				<div class="actual_content">
-					<form id="EditWindow">
+					<form id="EditWindow" th:action="@{/projectproperties}">
 
 						<h1>
 							Projekt jQAssistant &nbsp; <input type="button" value="Bearbeiten" onclick="" />
@@ -140,7 +140,8 @@
 
 
 					<p>
-					<form action="./projectOverview.html">
+					<!--  <form action="./projectOverview.html"> -->
+					<form th:action="@{/projectproperties}">
 
 						Save all changes <input type="submit" value="save" /> or discard <input type="submit" value="cancel" />
 					</form>

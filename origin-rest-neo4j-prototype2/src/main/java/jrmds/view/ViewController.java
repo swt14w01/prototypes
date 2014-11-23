@@ -82,5 +82,12 @@ public class ViewController extends WebMvcConfigurerAdapter {
 		return "redirect:/results";
 
 	}
+	
+	@RequestMapping(value ="/projectproperties" ,  method = RequestMethod.GET)
+	public String showProperties(){
+		
+		return "projectProps";
+	}
+	
 
 }

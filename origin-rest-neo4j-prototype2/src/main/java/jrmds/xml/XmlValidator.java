@@ -12,6 +12,8 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
+import java.util.List;
+
 import org.xml.sax.SAXException;
 
 public class XmlValidator {
@@ -51,4 +53,6 @@ public class XmlValidator {
 		  return false;
 		}
 		}
+	
+	
 }
