@@ -40,7 +40,7 @@ $('#search_input').autocomplete({
 			suggestions : $.map($.parseJSON(response), function(item) {
 
 				return {
-					value : item.name,
+					value : item.refID,
 					data : item.id
 				};
 			})

@@ -3,9 +3,9 @@ package jrmds.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import jrmds.Person;
-import jrmds.PersonRepository;
 import jrmds.controller.JrmdsMainController;
+import jrmds.controller.RuleRepository;
+import jrmds.controller.model.Component;
 import jrmds.user.UserManagement;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +22,15 @@ public class SearchController {
 	@Autowired
 	private UserManagement usr;
 	@Autowired
-	public PersonRepository personRepository;
+	public RuleRepository ruleRepository;
 
-	List<Person> autocompleteList;
+	List<Component> autocompleteList;
 
 	@RequestMapping(value = "/getAutoCompleteSuggestions", method = RequestMethod.GET)
-	public @ResponseBody List<Person> getAutoCompleteSuggestions(@RequestParam String tagName) {
-		autocompleteList = new ArrayList<Person>();
-		for (Person person : personRepository.findAll()) {
-			if(person.getName().toLowerCase().contains(tagName))
+	public @ResponseBody List<Component> getAutoCompleteSuggestions(@RequestParam String tagName) {
+		autocompleteList = new ArrayList<Component>();
+		for (Component person : controller.getComponents()) {
+			if(person.getRefID().toLowerCase().contains(tagName))
 			
 			autocompleteList.add(person);
 		}

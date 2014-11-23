@@ -1,15 +1,23 @@
 package jrmds.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import jrmds.controller.model.Component;
+import jrmds.controller.model.ComponentType;
+import jrmds.controller.model.Concept;
+import jrmds.controller.model.Constraint;
+import jrmds.controller.model.Group;
+import jrmds.controller.model.Project;
+import jrmds.controller.model.QueryTemplate;
+import jrmds.user.model.RegisteredUser;
+
 import org.neo4j.graphdb.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.rest.SpringRestGraphDatabase;
 import org.springframework.stereotype.Controller;
-
-import java.util.Set;
-import java.util.HashSet;
-
-import jrmds.controller.model.*;
-import jrmds.user.model.*;
 
 @Controller
 public class JrmdsMainController {
@@ -51,6 +59,19 @@ public class JrmdsMainController {
 		return result;
 	}
 
+	
+	public List<Component> getComponents(){
+		List<Component> resultList= new ArrayList<>();
+		try (Transaction tx = db.beginTx()) {
+			for(Component component : ruleRepository.findAll()) {
+				resultList.add(component);
+			}
+		}
+		return resultList;
+		
+	}
+	
+	
 	public Group getGroup(Project project, String refID) {
 		Group result = null;
 		try (Transaction tx = db.beginTx()) {
