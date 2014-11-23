@@ -32,6 +32,7 @@ public class JrmdsMainController {
 
 	public Constraint getConstraint(Project project, String refID) {
 		Constraint result = null;
+		if (project==null || refID==null) return null;
 		try (Transaction tx = db.beginTx()) {
 			result = new Constraint(ruleRepository.findByRefID(refID,
 					ComponentType.CONCEPT));
