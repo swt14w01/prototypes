@@ -60,7 +60,7 @@ public class JrmdsMainController {
 	}
 
 	
-	public List<Component> getComponents(){
+	public List<Component> getAllComponents(){
 		List<Component> resultList= new ArrayList<>();
 		try (Transaction tx = db.beginTx()) {
 			for(Component component : ruleRepository.findAll()) {

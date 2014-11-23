@@ -27,21 +27,19 @@ public class SearchController {
 	List<Component> autocompleteList;
 
 	@RequestMapping(value = "/getAutoCompleteSuggestions", method = RequestMethod.GET)
-	public @ResponseBody List<Component> getAutoCompleteSuggestions(@RequestParam String tagName) {
+	public @ResponseBody List<Component> getAutoCompleteSuggestions(
+			@RequestParam String tagName) {
 		autocompleteList = new ArrayList<Component>();
-		for (Component person : controller.getComponents()) {
-			if(person.getRefID().toLowerCase().contains(tagName))
-			
-			autocompleteList.add(person);
+		for (Component person : controller.getAllComponents()) {
+			if (person.getRefID().toLowerCase().contains(tagName))
+
+				autocompleteList.add(person);
 		}
 
 		return autocompleteList;
 
 	}
 
-	
-/*	@RequestMapping(value="/projectOverview", method = )*/
-	
-	
-	
+	/* @RequestMapping(value="/projectOverview", method = ) */
+
 }
