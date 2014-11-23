@@ -16,9 +16,9 @@ import org.springframework.data.neo4j.rest.SpringRestGraphDatabase;
 @ComponentScan
 public class Application extends Neo4jConfiguration {
 	public static GraphDatabaseService repo;
-	
+
 	public Application() {
-		repo=new SpringRestGraphDatabase("http://[::1]:7474/db/data");
+		repo = new SpringRestGraphDatabase("http://[::1]:7474/db/data");
 		setBasePackage("jrmds");
 	}
 
@@ -26,10 +26,9 @@ public class Application extends Neo4jConfiguration {
 	public GraphDatabaseService graphDatabaseService() {
 		return repo;
 	}
-	
-	
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
-    }
+
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(Application.class, args);
+	}
 
 }

@@ -15,7 +15,7 @@ import jrmds.user.model.*;
 @RestController
 public class ComponenController {
 	@Autowired
-	private JrmdsMainController jrmdsMainController;
+	private JrmdsMainController controller;
 	@Autowired
 	private UserManagement usr;
 	
@@ -24,7 +24,7 @@ public class ComponenController {
 		String temp="";
 
 		//Ausgeben des aktuellen Inhaltes:
-		Constraint foo = jrmdsMainController.getConstraint(null, null);
+		Constraint foo = controller.getConstraint(null, null);
 		
 		//suche alle Parameter zusammen
 		Set<Parameter> bar = foo.getParameters();

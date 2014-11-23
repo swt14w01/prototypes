@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SearchController {
 	@Autowired
-	private JrmdsMainController jrmdsMainController;
+	private JrmdsMainController controller;
 	@Autowired
 	private UserManagement usr;
 	@Autowired

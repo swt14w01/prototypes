@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegisterController {
 	@Autowired
-	private JrmdsMainController jrmdsMainController;
+	private JrmdsMainController controller;
 	@Autowired
 	private UserManagement usr;
 	

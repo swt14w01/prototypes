@@ -12,7 +12,7 @@ import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.Fetch;
 
 @NodeEntity
-public class Project extends Component {
+public class Project {
 	@GraphId
 	private Long id;
 	private String name;

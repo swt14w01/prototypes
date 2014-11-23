@@ -1,16 +1,13 @@
 package jrmds.user;
 
-import java.util.Set;
+import jrmds.controller.JrmdsMainController;
+import jrmds.controller.model.Project;
+import jrmds.user.model.RegisteredUser;
 
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.neo4j.annotation.Fetch;
 import org.springframework.stereotype.Controller;
-
-import jrmds.controller.*;
-import jrmds.controller.model.*;
-import jrmds.user.model.*;
 
 @Controller
 public class UserManagement {
