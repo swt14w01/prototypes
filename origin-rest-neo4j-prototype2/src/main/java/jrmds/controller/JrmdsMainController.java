@@ -31,7 +31,7 @@ public class JrmdsMainController {
 	}
 
 	public Constraint getConstraint(Project project, String refID) {
-		Constraint result;
+		Constraint result = null;
 		try (Transaction tx = db.beginTx()) {
 			result = new Constraint(ruleRepository.findByRefID(refID,
 					ComponentType.CONCEPT));
@@ -41,7 +41,7 @@ public class JrmdsMainController {
 	}
 
 	public Concept getConcept(Project project, String refID) {
-		Concept result;
+		Concept result = null;
 		try (Transaction tx = db.beginTx()) {
 			result = new Concept(ruleRepository.findByRefID(refID,
 					ComponentType.CONCEPT));
@@ -51,7 +51,7 @@ public class JrmdsMainController {
 	}
 
 	public Group getGroup(Project project, String refID) {
-		Group result;
+		Group result = null;
 		try (Transaction tx = db.beginTx()) {
 			result = new Group(ruleRepository.findByRefID(refID,
 					ComponentType.GROUP));
@@ -61,7 +61,7 @@ public class JrmdsMainController {
 	}
 
 	public QueryTemplate getTemplate(Project project, String refID) {
-		QueryTemplate result;
+		QueryTemplate result = null;
 		try (Transaction tx = db.beginTx()) {
 			result = new QueryTemplate(ruleRepository.findByRefID(refID,
 					ComponentType.TEMPLATE));
