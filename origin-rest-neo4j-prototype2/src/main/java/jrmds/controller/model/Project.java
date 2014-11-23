@@ -55,6 +55,12 @@ public class Project {
 	public void addExternalRepo(String extRepo) {
 		externalRepos.add(extRepo);
 	}
+	public boolean addComponent(Component cmpt) {
+		if (componentSet==null) componentSet=new HashSet<Component>();
+		if (componentSet.contains(cmpt)) return false;
+		componentSet.add(cmpt);
+		return true;
+	}
 
 	public void copyProject(Project project) {
 		id = project.getId();

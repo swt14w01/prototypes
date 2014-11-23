@@ -178,18 +178,14 @@ public class JrmdsMainController {
 		return temp;
 	}
 
-	public boolean addComponentToProject(Project project, Component component) {
-		// check wether the component is already linked or not
-		// Query for releation CONTAINS
-		return true;
-	}
-
-	public boolean addComponentReference(Project project, Component src,
-			Component dest) {
-		// adds a DEPENDSON relation and checks for possible cycles
-		// Checks if relation is legit, only Groups can reference another
-		// groups, only Concepts and templataes can use Templates....
-
+	public boolean addComponentToProject(Project p, Component cmpt) {
+		//check wether the component is already linked or not
+		//Query for releation CONTAINS
+		if (!p.addComponent(cmpt)) return false;
+		try (Transaction tx = db.beginTx()) {
+			projectRepository.save(p);
+			tx.success();
+		}
 		return true;
 	}
 
