@@ -26,11 +26,14 @@
 
 				<div class="actual_content">
 					<div class="formfields">
-						<form>
+						<form th:action="@{/reg}" th:object="${wannabeuser}">
 
-							<input class="formfield" placeholder="Username" /> <input class="formfield" placeholder="Password" /> <input class="formfield"
-								placeholder="Repeat Password" /> <input class="formfield" placeholder="Email Adress" /> <input type="submit" id="submit_button"
-								value="Submit" />
+							<input type="text" class="formfield" placeholder="Username" th:field="*{username}" />
+							<input type="text" class="formfield" placeholder="Password" th:field="*{password}" />
+							<input type="text" class="formfield" placeholder="Repeat Password" th:field="*{repeatedPassword}" />
+							<input type="text" class="formfield" placeholder="Email Adress" th:field="*{emailAdress}" />
+							
+							<input type="submit" id="submit_button"	value="Submit" />
 
 						</form>
 					</div>
