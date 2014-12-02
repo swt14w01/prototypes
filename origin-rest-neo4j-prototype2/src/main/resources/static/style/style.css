@@ -143,6 +143,8 @@ select:hover {
 	border:1px solid #99d7e7;
 	border-radius:4px;
 	}	
+	
+
 .error_message h4 {
 	text-align:center;
 	padding:5px;
@@ -303,11 +305,20 @@ font-size:14px;
 	color:#5dbcd3;
 	}
 	
-	
+.error_message_register {
+	background-color:#d1f6ff;
+	padding:4px 0px;
+	width:310px;
+	height: 23px;
+	margin-top:10px;
+	text-align:center;
+	border:1px solid #99d7e7;
+	border-radius:4px;
+	}	
 	
 .formfields {
 	height: 290px;
-	width: 300px;
+	width: 312px;
 	margin: auto;
 	}
 .formfield {
