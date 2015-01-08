@@ -28,7 +28,7 @@
         <cypher><![CDATA[match (n)-[r]-() set r=n]]></cypher>
     </concept>
     <concept severity="info" id="model:Apfel">
-        <description>Äppel sind oko</description>
+        <description>Appel sind oko</description>
         <cypher><![CDATA[match (n)-[r:appel]-(m) return n]]></cypher>
         <requiresConcept refId="model:Controlblubb"/>
         <requiresConcept refId="model:zucker"/>
