@@ -3,7 +3,7 @@
     <group id="slowychecky">
         <includeConcept refId="model:Apfel" severity="info"/>
         <includeConstraint refId="model:Undefined" severity="info"/>
-        <includeGroups refId="fastcheck" severity="info"/>
+        <includeGroup refId="fastcheck" severity="info"/>
     </group>
     <group id="fastcheck">
         <includeConcept refId="model:Viewblubb" severity="info"/>
