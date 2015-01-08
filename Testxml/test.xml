@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:jqassistant-rules xmlns:ns2="http://www.buschmais.com/jqassistant/core/analysis/rules/schema/v1.0">
-    <group id="slowychecky">
-        <includeConcept refId="model:Apfel" severity="info"/>
-        <includeConstraint refId="model:Undefined" severity="info"/>
-        <includeGroup refId="fastcheck" severity="info"/>
-    </group>
     <group id="fastcheck">
         <includeConcept refId="model:Viewblubb" severity="info"/>
         <includeConcept refId="model:test" severity="info"/>
     </group>
     <group id="filename">
         <includeConcept refId="controller:ControllerClass" severity="info"/>
-        <includeConstraint refId="controller:ClassNameMustHaveControllerSuffix" severity="info"/>
-        <includeConstraint refId="controller:ClassesMustBeLocatedInControllerPackage" severity="info"/>
+        <includeConstraint refId="controller:ClassNameMustHaveControllerSuffix" severity="major"/>
+        <includeConstraint refId="controller:ClassesMustBeLocatedInControllerPackage" severity="major"/>
+    </group>
+    <group id="slowychecky">
+        <includeConcept refId="model:Apfel" severity="info"/>
+        <includeConstraint refId="model:Undefined" severity="info"/>
+        <includeGroup refId="fastcheck"/>
     </group>
     <group id="filename">
         <includeConcept refId="model:ModelClass" severity="info"/>
-        <includeConstraint refId="model:ClassesMustBeLocatedInModelPackage" severity="info"/>
-        <includeConstraint refId="model:ClassNameMustHaveModelSuffix" severity="info"/>
+        <includeConstraint refId="model:ClassNameMustHaveModelSuffix" severity="major"/>
+        <includeConstraint refId="model:ClassesMustBeLocatedInModelPackage" severity="major"/>
     </group>
-    <concept severity="info" id="model:Viewblubb">
-        <description>View blabla</description>
-        <cypher><![CDATA[match (n) return n;]]></cypher>
+    <concept severity="info" id="model:zucker">
+        <description>zuviel Zucker ist schlecht</description>
+        <cypher><![CDATA[match (n)-[r]-(m:zucker) return n]]></cypher>
+        <requiresConcept refId="model:Controlblubb"/>
     </concept>
     <concept severity="info" id="model:test">
         <description>blubbblubb</description>
         <cypher><![CDATA[match (n)-[r]-() set r=n]]></cypher>
     </concept>
+    <concept severity="info" id="controller:ControllerClass">
+        <description>Labels all classes implementing the Controller interface as "Controller".</description>
+        <cypher><![CDATA[
+            MATCH
+                (controllerClass:Type:Class)-[:IMPLEMENTS*]->(controllerType:Type)
+            WHERE
+                controllerType.fqn = "com.buschmais.jqassistant.examples.rules.naming.Controller"
+            SET
+                controllerClass:Controller
+            RETURN
+                controllerClass
+        ]]></cypher>
+    </concept>
+    <concept severity="info" id="model:Controlblubb">
+        <description>Control blabla</description>
+        <cypher><![CDATA[match (z) return n;]]></cypher>
+        <requiresConcept refId="model:test"/>
+    </concept>
+    <concept severity="info" id="model:Viewblubb">
+        <description>View blabla</description>
+        <cypher><![CDATA[match (n) return n;]]></cypher>
+    </concept>
     <concept severity="info" id="model:Apfel">
-        <description>Appel sind oko</description>
+        <description>Űpel sind oko</description>
         <cypher><![CDATA[match (n)-[r:appel]-(m) return n]]></cypher>
         <requiresConcept refId="model:Controlblubb"/>
         <requiresConcept refId="model:zucker"/>
@@ -46,29 +69,10 @@
                 modelClass AS ModelClass
         ]]></cypher>
     </concept>
-    <concept severity="info" id="controller:ControllerClass">
-        <description>Labels all classes implementing the Controller interface as "Controller".</description>
-        <cypher><![CDATA[
-            MATCH
-                (controllerClass:Type:Class)-[:IMPLEMENTS*]->(controllerType:Type)
-            WHERE
-                controllerType.fqn = "com.buschmais.jqassistant.examples.rules.naming.Controller"
-            SET
-                controllerClass:Controller
-            RETURN
-                controllerClass
-        ]]></cypher>
-    </concept>
-    <concept severity="info" id="model:zucker">
-        <description>zuviel Zucker ist schlecht</description>
-        <cypher><![CDATA[match (n)-[r]-(m:zucker) return n]]></cypher>
-        <requiresConcept refId="model:Controlblubb"/>
-    </concept>
-    <concept severity="info" id="model:Controlblubb">
-        <description>Control blabla</description>
-        <cypher><![CDATA[match (z) return n;]]></cypher>
-        <requiresConcept refId="model:test"/>
-    </concept>
+    <constraint id="model:Undefined">
+        <description>another desc</description>
+        <cypher><![CDATA[match (n:Component)<-[r:DEPENDSON]-(m:Component {refID:{1}})--(p:Project {name:{0}}) return n;]]></cypher>
+    </constraint>
     <constraint id="model:ClassesMustBeLocatedInModelPackage">
         <description>All model classes must be located in the package "model".</description>
         <cypher><![CDATA[
@@ -78,28 +82,6 @@
                 NOT package.name = "model"
             RETURN
                 modelClass AS ModelClass, package AS InvalidPackage
-        ]]></cypher>
-    </constraint>
-    <constraint id="model:ClassNameMustHaveModelSuffix">
-        <description>All model classes must have a name suffix "Model".</description>
-        <cypher><![CDATA[
-            MATCH
-                (modelClass:Class:Model)
-            WHERE
-                NOT modelClass.name =~ ".*Model"
-            RETURN
-                modelClass AS ModelClass
-        ]]></cypher>
-    </constraint>
-    <constraint id="controller:ClassNameMustHaveControllerSuffix">
-        <description>All controller implementations must have a name suffix "Controller".</description>
-        <cypher><![CDATA[
-            MATCH
-                (controllerClass:Class:Controller)
-            WHERE
-                NOT controllerClass.name =~ ".*Controller"
-            RETURN
-                controllerClass AS ControllerClass
         ]]></cypher>
     </constraint>
     <constraint id="controller:ClassesMustBeLocatedInControllerPackage">
@@ -113,9 +95,27 @@
                 controllerClass AS ControllerClass, package AS InvalidPackage
         ]]></cypher>
     </constraint>
-    <constraint id="model:Undefined">
-        <description>another desc</description>
-        <cypher><![CDATA[match (n:Component)<-[r:DEPENDSON]-(m:Component {refID:{1}})--(p:Project {name:{0}}) return n;]]></cypher>
+    <constraint id="controller:ClassNameMustHaveControllerSuffix">
+        <description>All controller implementations must have a name suffix "Controller".</description>
+        <cypher><![CDATA[
+            MATCH
+                (controllerClass:Class:Controller)
+            WHERE
+                NOT controllerClass.name =~ ".*Controller"
+            RETURN
+                controllerClass AS ControllerClass
+        ]]></cypher>
+    </constraint>
+    <constraint id="model:ClassNameMustHaveModelSuffix">
+        <description>All model classes must have a name suffix "Model".</description>
+        <cypher><![CDATA[
+            MATCH
+                (modelClass:Class:Model)
+            WHERE
+                NOT modelClass.name =~ ".*Model"
+            RETURN
+                modelClass AS ModelClass
+        ]]></cypher>
     </constraint>
 </ns2:jqassistant-rules>
 
