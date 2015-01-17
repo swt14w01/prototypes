@@ -20,9 +20,9 @@
         <includeConstraint refId="model:ClassesMustBeLocatedInModelPackage" severity="major"/>
     </group>
     <concept severity="info" id="model:zucker">
+		<requiresConcept refId="model:Controlblubb"/>
         <description>zuviel Zucker ist schlecht</description>
         <cypher><![CDATA[match (n)-[r]-(m:zucker) return n]]></cypher>
-        <requiresConcept refId="model:Controlblubb"/>
     </concept>
     <concept severity="info" id="model:test">
         <description>blubbblubb</description>
@@ -42,20 +42,20 @@
         ]]></cypher>
     </concept>
     <concept severity="info" id="model:Controlblubb">
+		<requiresConcept refId="model:test"/>
         <description>Control blabla</description>
         <cypher><![CDATA[match (z) return n;]]></cypher>
-        <requiresConcept refId="model:test"/>
     </concept>
     <concept severity="info" id="model:Viewblubb">
         <description>View blabla</description>
         <cypher><![CDATA[match (n) return n;]]></cypher>
     </concept>
-    <concept severity="info" id="model:Apfel">
+    <!--concept severity="info" id="model:Apfel">
+		<requiresConcept refId="model:Controlblubb"/>
+        <requiresConcept refId="model:zucker"/>
         <description>Űpel sind oko</description>
         <cypher><![CDATA[match (n)-[r:appel]-(m) return n]]></cypher>
-        <requiresConcept refId="model:Controlblubb"/>
-        <requiresConcept refId="model:zucker"/>
-    </concept>
+    </concept>-->
     <concept severity="info" id="model:ModelClass">
         <description>Labels all classes annotated with @Model as "Model".</description>
         <cypher><![CDATA[
